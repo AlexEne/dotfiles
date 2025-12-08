@@ -122,24 +122,24 @@
       "max_severity": null
     }
   },
-    "theme_overrides": {
+  "theme_overrides": {
     "Catppuccin Mocha - No Italics": {
-      "accents": [
-        "#f38ba8",
-        "#fab387",
-        "#f9e2af",
-        "#a6e3a1",
-        "#74c7ec",
-        "#b4befe"
-      ]
       // "accents": [
-      //   "#ff69b4",
-      //   "#86C04D",
-      //   "#ff1493",
-      //   "#00ffff",
-      //   "#ff8c00",
-      //   "#9400d3"
+      //   "#f38ba8",
+      //   "#fab387",
+      //   "#f9e2af",
+      //   "#a6e3a1",
+      //   "#74c7ec",
+      //   "#b4befe"
       // ]
+      "accents": [
+        "#ff69b4",
+        "#86C04D",
+        "#ff1493",
+        "#00b4b4",
+        "#ff8c00",
+        "#9400d3"
+      ]
     }
   },
   "languages": {
