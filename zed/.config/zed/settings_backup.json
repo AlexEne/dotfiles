@@ -1,0 +1,130 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "features": {
+    // "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "none"
+  },
+  "icon_theme": "Catppuccin Latte",
+  "agent": {
+    "default_profile": "write",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    }
+  },
+  "auto_signature_help": true,
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "rust": {
+          "analyzerTargetDir": true,
+          "checkOnSave": true
+        }
+      }
+    }
+  },
+  "gutter": {
+    "min_line_number_digits": 3
+  },
+  // "experimental.theme_overrides": {
+  //   "background": "#000000DD",
+  //   "background.appearance": "blurred",
+  //   "panel.background": "#00000000",
+  //   "editor.background": "#00000000",
+  //   "terminal.background": "#00000000",
+  //   "title_bar.background": "#000000CA",
+  //   "editor.gutter.background": "#00000000",
+  //   "status_bar.background": "#000000C0",
+  //   "tab_bar.background": "#00000000",
+  //   "toolbar.background": "#00000040",
+  //   "warning.background": "#000000CF",
+  //   "error.background": "#000000CF"
+  //   // "elevated_surface.background": "#000000A0"
+  //   // "tab.inactive_background": "#00000015"
+  //   // "editor.active_line.background": "#ffffff20"
+  //   // "editor.document_highlight.bracket_background": "#ff009990"
+  // },
+  "remove_trailing_whitespace_on_save": false,
+  "chat_panel": {
+    "default_width": 356,
+    "button": "always"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 14,
+  "ui_font_family": "Monaspace Neon",
+  "theme": "Catppuccin Mocha - No Italics",
+  "scroll_sensitivity": 0.75,
+  "vim_mode": true,
+  "ui_font_features": {
+    "calt": true,
+    "liga": true
+  },
+  "restore_on_startup": "last_workspace",
+  "autosave": { "after_delay": { "milliseconds": 1000 } },
+  "always_treat_brackets_as_autoclosed": true,
+  "format_on_save": "off",
+  "ui_font_weight": 400,
+  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_size": 14.0,
+  "buffer_font_weight": 450,
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "line_width": 1
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "vertical_scroll_margin": 4,
+  "relative_line_numbers": false,
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
+    "show_other_hints": false,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false
+    }
+  },
+  "project_panel": {
+    "auto_reveal_entries": true
+  },
+  // "auto_signature_help": true,
+  // "show_signature_help_after_edits": true,
+  "terminal": {
+    "font_size": 11,
+    "font_family": "Monaspace Neon"
+  },
+  "diagnostics": {
+    "include_warnings": false,
+    "inline": {
+      "enabled": false,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["!pylsp", "pyright"]
+    }
+  }
+}

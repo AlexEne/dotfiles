@@ -1,0 +1,124 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "",
+    "use_key_equivalents": true,
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      // "cmd-r": "workspace::ToggleBottomDock",
+      "secondary-r": "terminal_panel::ToggleFocus",
+      "secondary-shift-i": "workspace::ToggleRightDock",
+      "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }],
+      "ctrl-1": ["workspace::ActivatePane", 0],
+      "ctrl-2": ["workspace::ActivatePane", 1],
+      "ctrl-3": ["workspace::ActivatePane", 2],
+      "ctrl-4": ["workspace::ActivatePane", 3],
+      "ctrl-5": ["workspace::ActivatePane", 4],
+      "ctrl-6": ["workspace::ActivatePane", 5],
+      "ctrl-7": ["workspace::ActivatePane", 6],
+      "ctrl-8": ["workspace::ActivatePane", 7],
+      "ctrl-9": ["workspace::ActivatePane", 8],
+      // "ctrl-alt-up": "editor::AddSelectionAbove",
+      // "ctrl-alt-down": "editor::AddSelectionBelow",
+      "alt-left": "pane::GoBack",
+      "alt-right": "pane::GoForward",
+      "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
+      "shift-alt-down": "editor::AddSelectionBelow" // Insert cursor below
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-c": "editor::Copy", // vim default: return to normal mode
+      "ctrl-x": "editor::Cut", // vim default: decrement
+      "ctrl-v": "editor::Paste", // vim default: visual block mode
+      "ctrl-y": "editor::Undo", // vim default: line up
+      "ctrl-f": "buffer_search::Deploy", // vim default: page down
+      "ctrl-o": "workspace::Open", // vim default: go back
+      "ctrl-a": "editor::SelectAll", // vim default: increment,
+      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }], // editor.action.addSelectionToNextFindMatch / find_under_expand
+      // "f3": "editor::SelectNextMatch",
+      "alt-shift-f": "editor::Format",
+      // "alt-ctrl-down": "editor::AddSelectionBelow",
+      "secondary-shift-i": "workspace::ToggleRightDock"
+      // "cmd-r": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Put key bindings here if you want them to work in normal & visual mode.
+      "space l l": "diagnostics::Deploy",
+      "space f": "file_finder::Toggle",
+      "space o": "tab_switcher::Toggle",
+      "space p": "outline::Toggle",
+      "space v": "editor::GoToDefinitionSplit",
+      "space r": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // "shift-y": ["workspace::SendKeystrokes", "y $"] // Use neovim's yank behavior: yank to end of line.
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
+    }
+  },
+  {
+    "context": "",
+    "bindings": {
+      "F10": "debugger::StepOver",
+      "F5": "debugger::Continue",
+      "shift-F5": "debugger::Stop",
+      "F9": "editor::ToggleBreakpoint",
+      "F11": "debugger::StepInto",
+      "shift-F11": "debugger::StepOut"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Put key bindings here (in addition to the context above) if you want them to
+      // work when no editor exists.
+      // "space f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-r": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor || Workspace || Terminal",
+    "bindings": {
+      "secondary-alt-left": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "secondary-alt-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+      "secondary-alt-up": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" }
+      ],
+      "secondary-alt-down": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" }
+      ]
+    }
+  }
+]
