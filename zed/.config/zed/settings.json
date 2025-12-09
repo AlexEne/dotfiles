@@ -12,7 +12,7 @@
     // "edit_prediction_provider": "copilot"
     "edit_prediction_provider": "none"
   },
-  "icon_theme": "Catppuccin Latte",
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
     "default_profile": "ask",
     "default_model": {
@@ -20,7 +20,6 @@
       "model": "gpt-5-mini"
     }
   },
-  "auto_signature_help": true,
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
