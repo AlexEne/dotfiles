@@ -12,7 +12,6 @@
     "bindings": {
       // "shift shift": "file_finder::Toggle"
       // "cmd-r": "workspace::ToggleBottomDock",
-      "secondary-r": "terminal_panel::ToggleFocus",
       "secondary-shift-i": "workspace::ToggleRightDock",
       "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }],
       "ctrl-1": ["workspace::ActivatePane", 0],
@@ -95,12 +94,6 @@
     }
   },
   {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-r": "terminal_panel::ToggleFocus"
-    }
-  },
-  {
     "context": "Editor || Workspace || Terminal",
     "bindings": {
       "secondary-alt-left": [
@@ -119,6 +112,18 @@
         "workspace::MoveItemToPaneInDirection",
         { "direction": "down" }
       ]
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-r": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-r": "workspace::ToggleBottomDock"
     }
   }
 ]
