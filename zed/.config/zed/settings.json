@@ -57,24 +57,24 @@
     "metrics": false
   },
   "ui_font_size": 14,
-  "ui_font_family": "Monaspace Neon Frozen",
+  "ui_font_family": "Monaspace Neon",
   "theme": "Catppuccin Mocha - No Italics",
   "scroll_sensitivity": 0.75,
   "vim_mode": true,
   "ui_font_features": {
     "calt": true,
-    "liga": false
+    "liga": true
   },
   "buffer_font_features": {
-    "calt": false,
-    "liga": false
+    "calt": true,
+    "liga": true
   },
   "restore_on_startup": "last_workspace",
   "autosave": { "after_delay": { "milliseconds": 1000 } },
   "always_treat_brackets_as_autoclosed": true,
   "format_on_save": "off",
   "ui_font_weight": 400,
-  "buffer_font_family": "Monaspace Neon Frozen",
+  "buffer_font_family": "Monaspace Neon",
   "buffer_font_size": 14.0,
   "buffer_font_weight": 450,
   "indent_guides": {
