@@ -9,6 +9,7 @@
   "modules-right": [
     "group/tray-expander",
     "bluetooth",
+    "custom/solaar-battery",
     "network",
     "pulseaudio",
     "cpu",
@@ -38,7 +39,12 @@
       "4": [],
       "5": []
     }
-  },
+  },  
+  "custom/solaar-battery": {
+    "exec": "python3 ~/.config/waybar/scripts/solaar_battery.py",
+    "interval": 900,
+    "return-type": "json"
+  },  
   "custom/omarchy": {
     "format": "<span font='omarchy'>\ue900</span>",
     "on-click": "omarchy-menu",
@@ -53,7 +59,6 @@
     "signal": 7,
     "interval": 21600
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",
@@ -74,7 +79,7 @@
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
-    "interval": 3,
+    "interval": 10,
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },

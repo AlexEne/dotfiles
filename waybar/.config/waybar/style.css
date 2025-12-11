@@ -35,9 +35,15 @@
 #pulseaudio,
 #custom-omarchy,
 #custom-screenrecording-indicator,
+#custom-solaar-battery,
 #custom-update {
   min-width: 12px;
   margin: 0 7.5px;
+}
+
+#custom-solaar-battery {
+    margin-right: 16px;
+    margin-left: 0px;
 }
 
 #tray {
