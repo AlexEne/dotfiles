@@ -53,7 +53,7 @@
   // },
   "remove_trailing_whitespace_on_save": false,
   "telemetry": {
-    "diagnostics": false,
+    "diagnostics": true,
     "metrics": false
   },
   "ui_font_size": 14,
@@ -67,7 +67,7 @@
   },
   "buffer_font_features": {
     "calt": true,
-    "liga": true
+    "liga": false
   },
   "restore_on_startup": "last_workspace",
   "autosave": { "after_delay": { "milliseconds": 1000 } },
