@@ -42,6 +42,7 @@
   },  
   "custom/solaar-battery": {
     "exec": "python3 ~/.config/waybar/scripts/solaar_battery.py",
+    "on-click": "python3 ~/.config/waybar/scripts/solaar_battery.py",
     "interval": 900,
     "return-type": "json"
   },  
