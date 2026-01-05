@@ -13,3 +13,6 @@ source ~/.local/share/omarchy/default/bash/rc
 # alias p='python'
 . "$HOME/.cargo/env"
 export PATH=$HOME/.local/bin:$PATH
+
+#eval "$(oh-my-posh init bash)"
+#eval "$(oh-my-posh init bash --config 'https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_mocha.omp.json')"
