@@ -8,7 +8,6 @@
   "modules-center": ["custom/update", "custom/screenrecording-indicator"],
   "modules-right": [
     "tray",
-    "bluetooth",
     "custom/solaar-battery",
     "network",
     "pulseaudio",
