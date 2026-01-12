@@ -110,7 +110,7 @@
   // "show_signature_help_after_edits": true,
   "terminal": {
     "font_size": 11,
-    "font_family": "Monaspace Neon NF"
+    // "font_family": "Monaspace NF"
   },
   "diagnostics": {
     "include_warnings": false,
