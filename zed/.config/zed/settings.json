@@ -14,10 +14,10 @@
   },
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1",
+      "model": "claude-sonnet-4.5",
     },
   },
   "lsp": {
@@ -79,7 +79,7 @@
   "ui_font_weight": 400,
   "buffer_font_family": "Monaspace Neon",
   "buffer_font_size": 14.0,
-  "buffer_font_weight": 500,
+  "buffer_font_weight": 400,
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware",
@@ -149,5 +149,9 @@
     "Python": {
       "language_servers": ["!pylsp", "pyright"],
     },
+  },
+  "minimap": {
+    "show": "auto",
+    "max_width_columns": 50
   },
 }
