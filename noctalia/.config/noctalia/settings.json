@@ -146,7 +146,7 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "tertiary",
-                    "customIconPath": "",
+                    "customIconPath": "/home/alex/dotfiles/wallpapers/.config/Wallpapers/arch_logo.png",
                     "enableColorization": true,
                     "icon": "noctalia",
                     "id": "ControlCenter",
@@ -434,7 +434,7 @@
         "diskPollingInterval": 30000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
-        "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
+        "externalMonitor": "omarchy-launch-or-focus-tui btop",
         "gpuCriticalThreshold": 90,
         "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
