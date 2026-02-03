@@ -471,7 +471,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/alex/Pictures/Wallpapers",
+        "directory": "/home/alex/.config/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
@@ -491,7 +491,7 @@
         "transitionType": "random",
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
