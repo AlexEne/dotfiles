@@ -1,0 +1,43 @@
+SETUP INSTRUCTIONS
+==================
+
+Your mouse battery widget for Noctalia has been created!
+
+Location: ~/.config/noctalia/plugins/mouse-battery/
+
+Files created:
+- manifest.json          : Plugin metadata and configuration
+- MouseBatteryWidget.qml : The widget QML code
+- solaar_battery.py      : Python script to get battery info from Solaar
+- README.md              : Full documentation
+
+NEXT STEPS:
+-----------
+
+1. Restart noctalia-shell to load the plugin:
+   killall qs && sleep 1 && qs -c noctalia-shell &
+
+2. Open Noctalia Settings (Super+Shift+S or from the bar menu)
+
+3. Navigate to: Bar → Widgets Positioning
+
+4. In your desired section (Left/Center/Right), click the "Add" button
+
+5. Select "Mouse Battery" from the widget list
+
+6. The widget will appear in your bar showing your mouse battery level!
+
+FEATURES:
+---------
+- Shows battery icon that changes with charge level
+- Color-coded: Red (≤10%), Orange (≤20%), Blue (charging), Gray (normal)
+- Tooltip shows mouse name and percentage
+- Click widget to manually refresh
+- Auto-refreshes every 15 minutes
+
+TROUBLESHOOTING:
+----------------
+If the widget doesn't appear:
+- Check qs logs: journalctl --user -u qs -f
+- Verify Solaar is running: ps aux | grep solaar
+- Test the script: python3 ~/.config/noctalia/plugins/mouse-battery/solaar_battery.py

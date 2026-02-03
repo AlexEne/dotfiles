@@ -129,6 +129,12 @@
                     "usePrimaryColor": false
                 },
                 {
+                    "defaultSettings": {
+                        "updateInterval": 900
+                    },
+                    "id": "plugin:mouse-battery"
+                },
+                {
                     "hideWhenZero": false,
                     "hideWhenZeroUnread": false,
                     "id": "NotificationHistory",

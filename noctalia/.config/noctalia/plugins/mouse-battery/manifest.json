@@ -1,0 +1,21 @@
+{
+  "id": "mouse-battery",
+  "name": "Mouse Battery",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "4.0.0",
+  "author": "Alex",
+  "license": "MIT",
+  "repository": "",
+  "description": "Display mouse battery level from Solaar",
+  "entryPoints": {
+    "barWidget": "MouseBatteryWidget.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "updateInterval": 900
+    }
+  }
+}
