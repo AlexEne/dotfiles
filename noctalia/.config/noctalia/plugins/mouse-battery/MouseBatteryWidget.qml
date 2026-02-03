@@ -67,6 +67,7 @@ Rectangle {
         NIcon {
             icon: root.currentIcon
             color: {
+                if (mouseArea.containsMouse) return "black"
                 if (root.hasError) return Color.mError
                 if (root.isCharging) return Color.mPrimary
                 if (root.batteryPercentage <= 10) return Color.mError
