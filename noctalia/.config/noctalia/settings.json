@@ -58,15 +58,6 @@
         "useSeparateOpacity": false,
         "widgets": {
             "center": [
-                {
-                    "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
-                    "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false,
-                    "usePrimaryColor": false
-                }
             ],
             "left": [
                 {
@@ -117,8 +108,8 @@
                     "diskPath": "/",
                     "id": "SystemMonitor",
                     "showCpuFreq": false,
-                    "showCpuTemp": true,
-                    "showCpuUsage": true,
+                    "showCpuTemp": false,
+                    "showCpuUsage": false,
                     "showDiskAsFree": false,
                     "showDiskUsage": false,
                     "showGpuTemp": false,
@@ -169,6 +160,15 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": true
+                },
+                {
+                    "customFont": "",
+                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatVertical": "HH mm - dd MM",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false,
+                    "usePrimaryColor": false
                 }
             ]
         }
@@ -286,20 +286,20 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.4000000000000001,
+        "animationSpeed": 1.5,
         "autoStartAuth": false,
         "avatarImage": "/home/alex/.face",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
         "enableLockScreenCountdown": true,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0.6,
         "language": "en",
         "lockOnSuspend": true,
         "lockScreenCountdownDuration": 10000,
-        "radiusRatio": 1,
+        "radiusRatio": 0.6,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
