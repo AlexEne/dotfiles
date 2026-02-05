@@ -7,17 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "none"
+  },
   "vim": {
     "toggle_relative_line_numbers": true
   },
   "colorize_brackets": true,
-  "features": {
-    // "edit_prediction_provider": "copilot"
-    "edit_prediction_provider": "none",
-  },
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4.5",
