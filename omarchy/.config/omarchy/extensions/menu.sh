@@ -14,18 +14,18 @@
 # }
 
 # Override screenrecord menu to use noctalia's recording widget
-#show_screenrecord_menu() {
-#  # Check if noctalia is running
-#  if ! pgrep -f "qs -c noctalia-shell" >/dev/null; then
-#    # Fallback to omarchy's built-in recording if noctalia isn't running
-#    if pgrep -f "^gpu-screen-recorder" >/dev/null; then
-#      omarchy-cmd-screenrecord
-#    else
-#      omarchy-cmd-screenrecord --with-desktop-audio
-#    fi
-#    return
-#  fi
-#  
-#  # Use noctalia's screen recording plugin via IPC
-#  qs -c noctalia-shell ipc call plugin:screen-recorder toggle
-#}
+show_screenrecord_menu() {
+  # Check if noctalia is running
+  if ! pgrep -f "qs -c noctalia-shell" >/dev/null; then
+    # Fallback to omarchy's built-in recording if noctalia isn't running
+    if pgrep -f "^gpu-screen-recorder" >/dev/null; then
+      omarchy-cmd-screenrecord
+    else
+      omarchy-cmd-screenrecord --with-desktop-audio
+    fi
+    return
+  fi
+  
+  # Use noctalia's screen recording plugin via IPC
+  qs -c noctalia-shell ipc call plugin:screen-recorder toggle
+}
