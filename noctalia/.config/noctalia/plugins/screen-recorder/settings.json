@@ -5,11 +5,11 @@
   "frameRate": "60",
   "audioCodec": "opus",
   "videoCodec": "h264",
-  "quality": "ultra",
+  "quality": "very_high",
   "colorRange": "full",
   "showCursor": true,
   "copyToClipboard": false,
-  "audioSource": "none",
+  "audioSource": "default_output",
   "videoSource": "portal",
   "resolution": "original"
 }
