@@ -12,6 +12,7 @@
     "network",
     "pulseaudio",
     "cpu",
+    "memory",
     "clock"
   ],
   "hyprland/workspaces": {
@@ -38,7 +39,13 @@
       "4": [],
       "5": []
     }
-  },  
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10,
+    "tooltip-format": "{used}/{total} GB"
+  },
   "custom/solaar-battery": {
     "exec": "python3 ~/.config/waybar/scripts/solaar_battery.py",
     "on-click": "python3 ~/.config/waybar/scripts/solaar_battery.py",

@@ -10,7 +10,7 @@
         "enableClipboardHistory": false,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
         "pinnedApps": [
         ],
@@ -53,7 +53,7 @@
         "position": "top",
         "screenOverrides": [
         ],
-        "showCapsule": true,
+        "showCapsule": false,
         "showOutline": false,
         "useSeparateOpacity": false,
         "widgets": {
@@ -301,7 +301,7 @@
         "language": "en",
         "lockOnSuspend": true,
         "lockScreenCountdownDuration": 10000,
-        "radiusRatio": 0.6,
+        "radiusRatio": 0.61,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",

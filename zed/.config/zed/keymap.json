@@ -25,6 +25,7 @@
       "ctrl-9": ["workspace::ActivatePane", 8],
       // "ctrl-alt-up": "editor::AddSelectionAbove",
       // "ctrl-alt-down": "editor::AddSelectionBelow",
+      // "ctrl-k": "editor::Hover",
       "alt-left": "pane::GoBack",
       "alt-right": "pane::GoForward",
       "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
@@ -58,7 +59,7 @@
       "space f": "file_finder::Toggle",
       "space o": "tab_switcher::Toggle",
       "space p": "outline::Toggle",
-      "space v": "editor::GoToDefinitionSplit",
+      "space g": "editor::GoToDefinitionSplit",
       "space r": "editor::FindAllReferences"
     }
   },
@@ -66,6 +67,10 @@
     "context": "vim_mode == normal && !menu",
     "bindings": {
       // "shift-y": ["workspace::SendKeystrokes", "y $"] // Use neovim's yank behavior: yank to end of line.
+      "shift-l": "vim::ResizePaneRight",
+      "shift-h": "vim::ResizePaneLeft",
+      "shift-j": "vim::ResizePaneDown",
+      "shift-k": "vim::ResizePaneUp",
     }
   },
   {
