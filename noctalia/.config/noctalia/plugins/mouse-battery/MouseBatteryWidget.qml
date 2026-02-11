@@ -112,7 +112,7 @@ Rectangle {
     // Process to get battery info
     Process {
         id: batteryProcess
-        command: ["python3", Qt.resolvedUrl("solaar_battery.py").toString().replace("file://", "")]
+        command: ["python3", "/home/alex/dotfiles/mouse-battery/mouse_battery.py"]
         stdout: SplitParser {
             id: batteryStdout
             onRead: data => {

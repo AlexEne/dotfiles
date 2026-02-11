@@ -47,10 +47,10 @@
     "tooltip-format": "{used}/{total} GB"
   },
   "custom/solaar-battery": {
-    "exec": "python3 ~/.config/waybar/scripts/solaar_battery.py",
-    "on-click": "python3 ~/.config/waybar/scripts/solaar_battery.py",
+    "exec": "python3 ~/dotfiles/mouse-battery/mouse_battery.py --waybar",
     "interval": 900,
-    "return-type": "json"
+    "return-type": "json",
+    "exec-on-event": true
   },  
   "custom/omarchy": {
     // "format": "<span font='omarchy'>\uf08c7</span>",
