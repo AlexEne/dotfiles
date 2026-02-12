@@ -16,10 +16,10 @@
   "colorize_brackets": true,
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5.2-codex",
+      "model": "claude-opus-4.6",
     },
   },
   "lsp": {

@@ -1,0 +1,3 @@
+# Grant the current logged-in user access to Logitech Lightspeed receiver hidraw devices
+# Vendor: 046d (Logitech), Product: c54d (Lightspeed Receiver)
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c54d", TAG+="uaccess"
