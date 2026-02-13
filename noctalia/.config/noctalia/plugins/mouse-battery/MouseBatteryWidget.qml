@@ -26,6 +26,7 @@ Rectangle {
     property bool isCharging: false
     property string mouseName: "Mouse"
     property bool hasError: false
+    property string errorMessage: ""
 
     // Update interval from settings (default 900 seconds = 15 minutes)
     readonly property int updateInterval: 900
@@ -89,9 +90,12 @@ Rectangle {
         }
 
         onEntered: {
-            var tooltipText = hasError 
-                ? "Battery status unavailable"
-                : mouseName + ": " + batteryPercentage + "%" + (isCharging ? " (Charging)" : "")
+            var tooltipText
+            if (hasError) {
+                tooltipText = errorMessage ? errorMessage : "Battery status unavailable"
+            } else {
+                tooltipText = mouseName + ": " + batteryPercentage + "%" + (isCharging ? " (Charging)" : "")
+            }
             TooltipService.show(root, tooltipText, BarService.getTooltipDirection())
         }
 
@@ -119,16 +123,19 @@ Rectangle {
                 try {
                     var result = JSON.parse(data)
                     if (result.error) {
-                        Logger.e("MouseBattery", "Solaar error:", result.error)
+                        Logger.e("MouseBattery", "Error:", result.error)
+                        root.errorMessage = result.error
                         root.hasError = true
                     } else {
                         root.batteryPercentage = result.percentage || 0
                         root.isCharging = result.charging || false
                         root.mouseName = result.name || "Mouse"
                         root.hasError = false
+                        root.errorMessage = ""
                     }
                 } catch (e) {
                     Logger.e("MouseBattery", "Failed to parse battery data:", e)
+                    root.errorMessage = "Failed to parse response"
                     root.hasError = true
                 }
             }
