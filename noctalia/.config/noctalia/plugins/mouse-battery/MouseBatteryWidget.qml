@@ -51,7 +51,7 @@ Rectangle {
         return batteryIcons[index]
     }
 
-    implicitWidth: row.implicitWidth + Style.marginM * 2
+    implicitWidth: capsuleHeight
     implicitHeight: capsuleHeight
 
     color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
