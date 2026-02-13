@@ -149,12 +149,15 @@ def hidpp_request(fd, device, feature_idx, function, *args):
 
 
 def wake_mouse(fd):
-    """Send a ping to wake the mouse from sleep."""
+    """Send a ping to wake the mouse from sleep.
+
+    Uses escalating delays to handle deep sleep (e.g. after system suspend).
+    """
     msg = bytes([HIDPP_SHORT, DEVICE_INDEX, 0x00, 0x10, 0x00, 0x00, 0xAA])
-    for _ in range(5):
+    for attempt in range(8):
         try:
             os.write(fd, msg)
-            time.sleep(0.08)
+            time.sleep(0.1 * (attempt + 1))
             try:
                 resp = os.read(fd, 32)
                 if resp and len(resp) >= 4 and resp[1] == DEVICE_INDEX:
@@ -162,7 +165,7 @@ def wake_mouse(fd):
             except BlockingIOError:
                 pass
         except OSError:
-            time.sleep(0.2)
+            time.sleep(0.3 * (attempt + 1))
     return False
 
 
@@ -250,48 +253,58 @@ def main():
         sys.exit(1)
 
     try:
-        drain(fd)
-        wake_mouse(fd)
+        last_error = None
 
-        # Get battery feature index
-        battery_idx = get_feature_index(fd, FEATURE_UNIFIED_BATTERY)
-        if battery_idx is None:
-            result = {"error": "Battery feature not found"}
+        # Retry the full wake + query cycle up to 3 times.
+        # The mouse may need multiple wake attempts from deep sleep,
+        # and the feature index lookup can fail if it hasn't fully
+        # initialized yet after waking.
+        for attempt in range(3):
+            drain(fd)
+            wake_mouse(fd)
+
+            # Get battery feature index
+            battery_idx = get_feature_index(fd, FEATURE_UNIFIED_BATTERY)
+            if battery_idx is None:
+                last_error = "Battery feature not found"
+                time.sleep(1.5 * (attempt + 1))
+                continue
+
+            # Get battery status
+            percentage, charging, status_name = get_battery(fd, battery_idx)
+            if percentage is None:
+                last_error = "Could not read battery status"
+                time.sleep(1.5 * (attempt + 1))
+                continue
+
+            # Success — get device name and output
+            name_idx = get_feature_index(fd, FEATURE_DEVICE_NAME)
+            name = get_device_name(fd, name_idx) if name_idx else None
+            name = name or "Logitech Mouse"
+
             if waybar_mode:
-                result = {"text": "", "tooltip": result["error"], "class": "error"}
+                icon = get_battery_icon(percentage, charging)
+                result = {
+                    "text": icon,
+                    "tooltip": f"{name}: {percentage}%{icon}",
+                    "class": "charging" if charging else "discharging",
+                }
+            else:
+                result = {
+                    "percentage": percentage,
+                    "charging": charging,
+                    "name": name,
+                }
+
             print(json.dumps(result))
-            sys.exit(1)
+            return
 
-        # Get battery status
-        percentage, charging, status_name = get_battery(fd, battery_idx)
-        if percentage is None:
-            result = {"error": "Could not read battery status"}
-            if waybar_mode:
-                result = {"text": "", "tooltip": result["error"], "class": "error"}
-            print(json.dumps(result))
-            sys.exit(1)
-
-        # Get device name
-        name_idx = get_feature_index(fd, FEATURE_DEVICE_NAME)
-        name = get_device_name(fd, name_idx) if name_idx else None
-        name = name or "Logitech Mouse"
-
-        # Output
+        # All retries exhausted
+        result = {"error": last_error}
         if waybar_mode:
-            icon = get_battery_icon(percentage, charging)
-            result = {
-                "text": icon,
-                "tooltip": f"{name}: {percentage}%{icon}",
-                "class": "charging" if charging else "discharging",
-            }
-        else:
-            result = {
-                "percentage": percentage,
-                "charging": charging,
-                "name": name,
-            }
-
+            result = {"text": "", "tooltip": last_error, "class": "error"}
         print(json.dumps(result))
+        sys.exit(1)
 
     except Exception as e:
         result = {"error": str(e)}
