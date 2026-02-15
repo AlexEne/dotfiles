@@ -16,7 +16,7 @@
   "colorize_brackets": true,
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-opus-4.6",
