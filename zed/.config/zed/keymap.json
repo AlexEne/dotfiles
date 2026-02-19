@@ -130,5 +130,11 @@
     "bindings": {
       "ctrl-r": "workspace::ToggleBottomDock"
     }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "shift-k": "editor::Hover"
+    }
   }
 ]
