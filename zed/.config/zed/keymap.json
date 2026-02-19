@@ -29,8 +29,8 @@
       "alt-left": "pane::GoBack",
       "alt-right": "pane::GoForward",
       "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
-      "shift-alt-down": "editor::AddSelectionBelow" // Insert cursor below
-    }
+      "shift-alt-down": "editor::AddSelectionBelow", // Insert cursor below
+    },
   },
   {
     "context": "Editor && !menu",
@@ -47,9 +47,9 @@
       // "f3": "editor::SelectNextMatch",
       "alt-shift-f": "editor::Format",
       // "alt-ctrl-down": "editor::AddSelectionBelow",
-      "secondary-shift-i": "workspace::ToggleRightDock"
+      "secondary-shift-i": "workspace::ToggleRightDock",
       // "cmd-r": "workspace::ToggleBottomDock"
-    }
+    },
   },
   {
     "context": "VimControl && !menu",
@@ -60,8 +60,8 @@
       "space o": "tab_switcher::Toggle",
       "space p": "outline::Toggle",
       "space g": "editor::GoToDefinitionSplit",
-      "space r": "editor::FindAllReferences"
-    }
+      "space r": "editor::FindAllReferences",
+    },
   },
   {
     "context": "vim_mode == normal && !menu",
@@ -71,13 +71,13 @@
       "shift-h": "vim::ResizePaneLeft",
       "shift-j": "vim::ResizePaneDown",
       "shift-k": "vim::ResizePaneUp",
-    }
+    },
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
-    }
+    },
   },
   {
     "context": "",
@@ -87,8 +87,8 @@
       "shift-F5": "debugger::Stop",
       "F9": "editor::ToggleBreakpoint",
       "F11": "debugger::StepInto",
-      "shift-F11": "debugger::StepOut"
-    }
+      "shift-F11": "debugger::StepOut",
+    },
   },
   {
     "context": "EmptyPane || SharedScreen",
@@ -96,45 +96,46 @@
       // Put key bindings here (in addition to the context above) if you want them to
       // work when no editor exists.
       // "space f": "file_finder::Toggle"
-    }
+    },
   },
   {
     "context": "Editor || Workspace || Terminal",
     "bindings": {
       "secondary-alt-left": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
+        { "direction": "left" },
       ],
       "secondary-alt-right": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
+        { "direction": "right" },
       ],
       "secondary-alt-up": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" }
+        { "direction": "up" },
       ],
       "secondary-alt-down": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" }
-      ]
-    }
+        { "direction": "down" },
+      ],
+    },
   },
   {
     "context": "Editor && !menu",
     "bindings": {
-      "ctrl-r": "terminal_panel::Toggle"
-    }
+      "ctrl-r": "terminal_panel::Toggle",
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-r": "workspace::ToggleBottomDock"
-    }
+      "ctrl-r": "workspace::ToggleBottomDock",
+    },
   },
   {
     "context": "(VimControl && !menu)",
     "bindings": {
-      "shift-k": "editor::Hover"
-    }
-  }
+      "shift-k": "editor::Hover",
+      "ctrl-g": "go_to_line::Toggle",
+    },
+  },
 ]
