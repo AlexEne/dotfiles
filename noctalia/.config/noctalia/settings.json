@@ -378,18 +378,18 @@
     },
     "hooks": {
         "darkModeChange": "",
-        "enabled": false,
+        "enabled": true,
         "performanceModeDisabled": "",
         "performanceModeEnabled": "",
-        "screenLock": "",
-        "screenUnlock": "",
+        "screenLock": "playerctl pause",
+        "screenUnlock": "playerctl play",
         "session": "",
         "startup": "",
         "wallpaperChange": ""
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockTimeout": 660,
         "screenOffTimeout": 600,
@@ -580,7 +580,7 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "automationEnabled": true,
+        "automationEnabled": false,
         "directory": "/home/alex/.config/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
