@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "edit_predictions": {
     "provider": "none"
   },
@@ -16,10 +25,13 @@
   "colorize_brackets": true,
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
-    "default_profile": "ask",
+    "sidebar_side": "right",
+    "dock": "right",
+    "default_profile": "write",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-opus-4.6",
+      "enable_thinking": false,
+      "provider": "opencode",
+      "model": "glm-5",
     },
   },
   "lsp": {
@@ -109,6 +121,7 @@
     },
   },
   "project_panel": {
+    "dock": "left",
     "auto_reveal_entries": true,
   },
   // "auto_signature_help": true,

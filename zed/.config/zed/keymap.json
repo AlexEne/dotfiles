@@ -138,4 +138,19 @@
       "ctrl-g": "go_to_line::Toggle",
     },
   },
+  {
+    "bindings": {
+      "ctrl-f2": "editor::ToggleBookmark"
+    }
+  },
+  {
+    "bindings": {
+      "f2": "editor::GoToNextBookmark"
+    }
+  },
+  {
+    "bindings": {
+      "shift-f2": "editor::GoToPreviousBookmark"
+    }
+  }
 ]
