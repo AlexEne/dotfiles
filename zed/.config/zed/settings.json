@@ -150,6 +150,7 @@
       //   "#74c7ec",
       //   "#b4befe"
       // ]
+      "editor.debugger_active_line.background": "#96815a3d",
       "accents": [
         "#ff69b4",
         "#86C04D",
