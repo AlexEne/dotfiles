@@ -31,7 +31,7 @@
     "default_model": {
       "enable_thinking": false,
       "provider": "opencode",
-      "model": "glm-5",
+      "model": "claude-opus-4-7",
     },
   },
   "lsp": {
