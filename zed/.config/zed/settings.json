@@ -27,11 +27,11 @@
   "agent": {
     "sidebar_side": "right",
     "dock": "right",
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "enable_thinking": false,
       "provider": "opencode",
-      "model": "claude-opus-4-7",
+      "model": "zen/claude-opus-4-7",
     },
   },
   "lsp": {
