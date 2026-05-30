@@ -4,5 +4,5 @@ if [ -z "$THEMES" ]; then
   notify-send "Themes" "No themes found"
   exit 1
 fi
-CHOICE=$(echo "$THEMES" | sort -u | walker --dmenu -p "Theme" --width 300 --maxheight 400 --minheight 100)
+CHOICE=$(echo "$THEMES" | sort -u | rofi -dmenu -i -p "Theme" -theme-str 'window { width: 380px; } listview { lines: 8; }')
 [ -n "$CHOICE" ] && omarchy-theme-set "$CHOICE"

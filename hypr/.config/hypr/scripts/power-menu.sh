@@ -1,5 +1,5 @@
 #!/bin/bash
-CHOICE=$(printf "Lock\nSuspend\nHibernate\nReboot\nShutdown\nCancel" | walker --dmenu -p "Power" --width 200 --maxheight 300 --minheight 150)
+CHOICE=$(printf "Lock\nSuspend\nHibernate\nReboot\nShutdown\nCancel" | rofi -dmenu -i -p "Power" -theme-str 'window { width: 280px; } listview { lines: 6; }')
 case "$CHOICE" in
   Lock)     hyprlock ;;
   Suspend)  systemctl suspend ;;
