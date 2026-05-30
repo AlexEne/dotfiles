@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "split",
+  "language_models": {
+    "opencode": {
+      "show_zen_models": true,
+      "show_free_models": true,
+      "show_go_models": false
+    }
+  },
   "outline_panel": {
     "dock": "left"
   },
@@ -27,7 +35,7 @@
   "agent": {
     "sidebar_side": "right",
     "dock": "right",
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "enable_thinking": false,
       "provider": "opencode",
