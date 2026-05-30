@@ -7,14 +7,10 @@
  */
 
 configuration {
-    modi:                "drun,calc,combi,window";
-    combi-modes:         "window,drun,calc";
+    modi:                "drun,calc";
     show-icons:          true;
     drun-display-format: "{name}";
-    display-combi:       "Search";
     display-drun:        "Apps";
-    display-run:         "Run";
-    display-window:      "Win";
     display-calc:        "Calc";
     /* rofi-calc: copy the result on Enter */
     calc-command:        "echo -n '{result}' | wl-copy";
@@ -28,9 +24,11 @@ configuration {
 
     /* rofi-calc options — show live results in the message widget */
     calc {
-        terse:        true;        /* show "4" instead of "2+2 = 4" */
-        hint-welcome: "Type an expression";
-        hint-result:  "= ";
+        terse:              true;        /* show "4" instead of "2+2 = 4" */
+        hint-welcome:       "Type an expression";
+        hint-result:        "= ";
+        no-history:         true;        /* don't load or show past calculations */
+        no-persist-history: true;        /* don't write to ~/.local/share/rofi/rofi_calc_history */
     }
 }
 
