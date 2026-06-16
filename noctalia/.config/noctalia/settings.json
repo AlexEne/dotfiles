@@ -122,8 +122,8 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
-                        "Discord",
-                        "steam"
+                        "steam",
+                        "Discord"
                     ]
                 },
                 {
