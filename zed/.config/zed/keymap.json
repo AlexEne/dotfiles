@@ -61,6 +61,8 @@
       "space p": "outline::Toggle",
       "space g": "editor::GoToDefinitionSplit",
       "space r": "editor::FindAllReferences",
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
     },
   },
   {
