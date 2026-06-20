@@ -28,6 +28,8 @@
       // "ctrl-k": "editor::Hover",
       "alt-left": "pane::GoBack",
       "alt-right": "pane::GoForward",
+      "alt-h": "pane::GoBack",
+      "alt-l": "pane::GoForward",
       "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
       "shift-alt-down": "editor::AddSelectionBelow", // Insert cursor below
     },
@@ -108,6 +110,14 @@
         { "direction": "left" },
       ],
       "secondary-alt-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" },
+      ],
+      "secondary-alt-h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" },
+      ],
+      "secondary-alt-l": [
         "workspace::MoveItemToPaneInDirection",
         { "direction": "right" },
       ],
