@@ -52,9 +52,6 @@
       },
     },
   },
-  "gutter": {
-    "min_line_number_digits": 3,
-  },
   // "experimental.theme_overrides": {
   //   "background": "#000000DD",
   //   "background.appearance": "blurred",
@@ -136,7 +133,7 @@
   // "show_signature_help_after_edits": true,
   "terminal": {
     "font_size": 11,
-    // "font_family": "Monaspace NF"
+    // "font_family": "JetBrainsMono Nerd Font"
   },
   "diagnostics": {
     "include_warnings": false,
