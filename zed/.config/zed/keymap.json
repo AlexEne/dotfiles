@@ -131,23 +131,29 @@
       ],
     },
   },
+    {
+    "context": "Workspace",
+    "bindings": {
+      "secondary-shift-g": "git_panel::Toggle",
+    },
+  },
   {
     "context": "Editor && !menu",
     "bindings": {
-      "ctrl-r": "terminal_panel::Toggle",
+      "secondary-r": "terminal_panel::Toggle",
     },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-r": "workspace::ToggleBottomDock",
+      "secondary-r": "workspace::ToggleBottomDock",
     },
   },
   {
     "context": "(VimControl && !menu)",
     "bindings": {
       "shift-k": "editor::Hover",
-      "ctrl-g": "go_to_line::Toggle",
+      "secondary-g": "go_to_line::Toggle",
     },
   },
   {
