@@ -30,8 +30,8 @@
       "alt-right": "pane::GoForward",
       "alt-h": "pane::GoBack",
       "alt-l": "pane::GoForward",
-      "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
-      "shift-alt-down": "editor::AddSelectionBelow", // Insert cursor below
+      "shift-alt-k": "editor::AddSelectionAbove", // Insert cursor above
+      "shift-alt-j": "editor::AddSelectionBelow", // Insert cursor below
     },
   },
   {
