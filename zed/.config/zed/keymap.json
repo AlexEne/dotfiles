@@ -131,22 +131,22 @@
       ],
     },
   },
-    {
+  {
     "context": "Workspace",
     "bindings": {
       "secondary-shift-g": "git_panel::Toggle",
     },
   },
   {
-    "context": "Editor && !menu",
+    "context": "Editor || Workspace || Terminal",
     "bindings": {
-      "secondary-r": "terminal_panel::Toggle",
+      "secondary-r": "terminal_panel::ToggleFocus",
     },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "secondary-r": "workspace::ToggleBottomDock",
+      "secondary-R": "terminal_panel::Toggle",
     },
   },
   {
@@ -158,17 +158,17 @@
   },
   {
     "bindings": {
-      "ctrl-f2": "editor::ToggleBookmark"
-    }
+      "ctrl-f2": "editor::ToggleBookmark",
+    },
   },
   {
     "bindings": {
-      "f2": "editor::GoToNextBookmark"
-    }
+      "f2": "editor::GoToNextBookmark",
+    },
   },
   {
     "bindings": {
-      "shift-f2": "editor::GoToPreviousBookmark"
-    }
-  }
+      "shift-f2": "editor::GoToPreviousBookmark",
+    },
+  },
 ]
