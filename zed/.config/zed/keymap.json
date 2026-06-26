@@ -63,6 +63,14 @@
       "space p": "outline::Toggle",
       "space g": "editor::GoToDefinitionSplit",
       "space r": "editor::FindAllReferences",
+      "space w j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" },
+      ],
+      "space w k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" },
+      ],
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
     },
