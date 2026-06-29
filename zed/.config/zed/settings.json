@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "debugger": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
   "diff_view_style": "unified",
   "language_models": {
     "opencode": {
@@ -19,9 +25,11 @@
     "dock": "left"
   },
   "collaboration_panel": {
+    "button": false,
     "dock": "left"
   },
   "git_panel": {
+    "button": false,
     "dock": "left"
   },
   "edit_predictions": {
@@ -33,6 +41,7 @@
   "colorize_brackets": true,
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
+    "button": false,
     "sidebar_side": "right",
     "dock": "right",
     "default_profile": "write",
@@ -126,12 +135,14 @@
     },
   },
   "project_panel": {
+    "button": false,
     "dock": "left",
     "auto_reveal_entries": true,
   },
   // "auto_signature_help": true,
   // "show_signature_help_after_edits": true,
   "terminal": {
+    "button": false,
     "font_size": 11,
     // "font_family": "JetBrainsMono Nerd Font"
   },
