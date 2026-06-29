@@ -44,7 +44,7 @@
     "button": false,
     "sidebar_side": "right",
     "dock": "right",
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "enable_thinking": false,
       "provider": "opencode",
