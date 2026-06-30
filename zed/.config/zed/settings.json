@@ -8,35 +8,35 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "debugger": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "diff_view_style": "unified",
   "language_models": {
     "opencode": {
       "show_zen_models": true,
       "show_free_models": true,
-      "show_go_models": false
-    }
+      "show_go_models": false,
+    },
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
     "button": false,
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
     "button": false,
-    "dock": "left"
+    "dock": "left",
   },
   "edit_predictions": {
-    "provider": "none"
+    "provider": "none",
   },
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "colorize_brackets": true,
   "icon_theme": "Colored Zed Icons Theme Dark",
@@ -175,6 +175,7 @@
         "#ff8c00",
         "#9400d3",
       ],
+      "panel.focused_border": "#ac8fd4",
     },
   },
   "languages": {
@@ -184,6 +185,6 @@
   },
   "minimap": {
     "show": "never",
-    "max_width_columns": 50
+    "max_width_columns": 50,
   },
 }
