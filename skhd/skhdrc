@@ -13,9 +13,9 @@ apps < s : open -b com.tinyspeck.slackmacgap && /opt/homebrew/bin/skhd -k "escap
 apps < m : open -b com.microsoft.Outlook     &&  /opt/homebrew/bin/skhd-k "escape"
 apps < t : open -b com.mitchellh.ghostty   && /opt/homebrew/bin/skhd -k "escape"
 apps < v : open -b com.cisco.secureclient.gui && /opt/homebrew/bin/skhd -k "escape"
-apps < w : open -b org.mozilla.firefox && /opt/homebrew/bin/skhd -k "escape"
+apps < e : open -b org.mozilla.firefox && /opt/homebrew/bin/skhd -k "escape"
 apps < z : open -b us.zoom.xos               && /opt/homebrew/bin/skhd -k "escape"
-apps < e : open -b dev.zed.Zed        && /opt/homebrew/bin/skhd -k "escape"
+apps < w : open -b dev.zed.Zed        && /opt/homebrew/bin/skhd -k "escape"
 	
 # Escape from leader mode
 apps < escape ; default
