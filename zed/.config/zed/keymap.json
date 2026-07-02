@@ -58,7 +58,7 @@
     "bindings": {
       // Put key bindings here if you want them to work in normal & visual mode.
       "space l l": "diagnostics::Deploy",
-      "space f": "file_finder::Toggle",
+      "space f": "text_finder::Toggle",
       "space o": "tab_switcher::Toggle",
       "space p": "outline::Toggle",
       "space g": "editor::GoToDefinitionSplit",
