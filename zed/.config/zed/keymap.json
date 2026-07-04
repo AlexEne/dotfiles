@@ -11,7 +11,7 @@
     "use_key_equivalents": true,
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      "ctrl-B": "workspace::ToggleBottomDock",
+      "ctrl-b": "workspace::ToggleBottomDock",
       "secondary-shift-i": "workspace::ToggleRightDock",
       "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }],
       "ctrl-1": ["workspace::ActivatePane", 0],
@@ -50,9 +50,9 @@
       "alt-shift-f": "editor::Format",
       // "alt-ctrl-down": "editor::AddSelectionBelow",
       "secondary-shift-i": "workspace::ToggleRightDock",
-      "secondary-b": "terminal_panel::Toggle",
       "ctrl-]": "editor::Indent",
       "ctrl-[": "editor::Outdent",
+      "ctrl-t": "project_symbols::Toggle"
     },
   },
   {
@@ -151,12 +151,6 @@
     "context": "Editor || Workspace || Terminal",
     "bindings": {
       "secondary-r": "terminal_panel::ToggleFocus",
-    },
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "secondary-b": "terminal_panel::Toggle",
     },
   },
   {
