@@ -39,16 +39,20 @@
     "toggle_relative_line_numbers": true,
   },
   "colorize_brackets": true,
-  "icon_theme": "Colored Zed Icons Theme Dark",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Colored Zed Icons Theme Dark",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
   "agent": {
     "button": false,
     "sidebar_side": "right",
     "dock": "right",
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "enable_thinking": false,
       "provider": "opencode",
-      "model": "zen/claude-opus-4-7",
+      "model": "zen/gpt-5.4",
     },
   },
   "lsp": {
@@ -89,7 +93,11 @@
   },
   "ui_font_size": 14,
   "ui_font_family": "Monaspace Neon",
-  "theme": "Catppuccin Mocha - No Italics",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics"
+  },
   "scroll_sensitivity": 0.75,
   "vim_mode": true,
   "ui_font_features": {
@@ -165,16 +173,16 @@
       //   "#a6e3a1",
       //   "#74c7ec",
       //   "#b4befe"
-      // ]
+      // ],
       "editor.debugger_active_line.background": "#96815a2d",
-      "accents": [
-        "#ff69b4",
-        "#86C04D",
-        "#ff1493",
-        "#00b4b4",
-        "#ff8c00",
-        "#9400d3",
-      ],
+      // "accents": [
+      //   "#ff69b4",
+      //   "#86C04D",
+      //   "#ff1493",
+      //   "#00b4b4",
+      //   "#ff8c00",
+      //   "#9400d3",
+      // ],
       "panel.focused_border": "#ac8fd4",
     },
   },
