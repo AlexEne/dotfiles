@@ -77,6 +77,8 @@
       "shift-h": "vim::ResizePaneLeft",
       "shift-j": "vim::ResizePaneDown",
       "shift-k": "vim::ResizePaneUp",
+      "}": "vim::ScrollDown",
+      "{": "vim::ScrollUp",
     },
   },
   {
