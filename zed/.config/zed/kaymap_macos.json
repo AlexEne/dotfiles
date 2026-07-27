@@ -33,6 +33,8 @@
       "alt-l": "pane::GoForward",
       "shift-alt-up": "editor::AddSelectionAbove", // Insert cursor above
       "shift-alt-down": "editor::AddSelectionBelow", // Insert cursor below
+      "secondary-j": "workspace::ToggleLeftDock",
+      "secondary-b": "workspace::ToggleBottomDock",
     },
   },
   {
