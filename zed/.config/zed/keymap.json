@@ -65,6 +65,9 @@
       "space t": "project_symbols::Toggle",
       "space g": "editor::GoToDefinitionSplit",
       "space r": "editor::FindAllReferences",
+      "space b": "editor::ViewBookmarks",
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
       "space w j": [
         "workspace::MoveItemToPaneInDirection",
         { "direction": "down" },
@@ -85,8 +88,6 @@
       "shift-h": "vim::ResizePaneLeft",
       "shift-j": "vim::ResizePaneDown",
       "shift-k": "vim::ResizePaneUp",
-      "tab": "editor::Indent",
-      "shift-tab": "editor::Outdent",
       "secondary-]": "vim::ScrollDown",
       "secondary-[": "vim::ScrollUp",
     },
