@@ -167,6 +167,8 @@
   "theme_overrides": {
     "Gruvbox Dark Hard": {
       "panel.background": "#1d2021",
+      "tab_bar.background": "#1d2021",
+      "title_bar.background": "#1d2021",
     },
     "Catppuccin Mocha - No Italics": {
       // "accents": [
