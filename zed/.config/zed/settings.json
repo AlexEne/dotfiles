@@ -17,7 +17,6 @@
   "language_models": {
     "opencode": {
       "show_zen_models": true,
-      "show_free_models": true,
       "show_go_models": false,
     },
   },
@@ -42,7 +41,7 @@
   "icon_theme": {
     "mode": "light",
     "light": "Colored Zed Icons Theme Dark",
-    "dark": "Colored Zed Icons Theme Dark"
+    "dark": "Colored Zed Icons Theme Dark",
   },
   "agent": {
     "button": false,
@@ -96,7 +95,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha - No Italics"
+    "dark": "Catppuccin Mocha - No Italics",
   },
   "scroll_sensitivity": 0.75,
   "vim_mode": true,
@@ -150,6 +149,8 @@
   // "auto_signature_help": true,
   // "show_signature_help_after_edits": true,
   "terminal": {
+    "font_weight": 450.0,
+    "font_family": "Monaspace Neon",
     "button": false,
     "font_size": 11,
     // "font_family": "JetBrainsMono Nerd Font"
