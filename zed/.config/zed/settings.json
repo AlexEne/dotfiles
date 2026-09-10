@@ -39,7 +39,7 @@
   },
   "colorize_brackets": true,
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Colored Zed Icons Theme Dark",
     "dark": "Colored Zed Icons Theme Dark",
   },
@@ -93,9 +93,9 @@
   "ui_font_size": 14,
   "ui_font_family": "Monaspace Neon",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "Catppuccin Mocha - No Italics",
+    "dark": "Duskfox - opaque",
   },
   "scroll_sensitivity": 0.75,
   "vim_mode": true,
