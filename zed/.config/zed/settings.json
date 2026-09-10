@@ -166,6 +166,9 @@
     },
   },
   "theme_overrides": {
+    "Duskfox - opaque": {
+      "title_bar.inactive_background": "#191726FF",
+    },
     "Gruvbox Dark Hard": {
       "panel.background": "#1d2021",
       "tab_bar.background": "#1d2021",
