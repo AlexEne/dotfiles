@@ -184,6 +184,7 @@
       "syntax": {
         "property": { "color": "#a2c7e0" },
         "function": { "color": "#65b1cd" },
+        "variable.special": { "color": "#e0def4" },
       },
       "pane_group.border": "#FFFFFF30",
     },
