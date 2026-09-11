@@ -172,6 +172,7 @@
         "property": { "color": "#a2c7e0" },
         "function": { "color": "#65b1cd" },
       },
+      "pane_group.border": "#FFFFFF30",
     },
     "Gruvbox Dark Hard": {
       "panel.background": "#1d2021",
