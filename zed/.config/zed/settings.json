@@ -95,7 +95,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Duskfox - opaque",
+    "dark": "Kanagawa Dragon - No Italics",
   },
   "scroll_sensitivity": 0.75,
   "vim_mode": true,
@@ -166,6 +166,19 @@
     },
   },
   "theme_overrides": {
+    "Kanagawa Dragon - No Italics": {
+      // "background.appearance": "blurred",
+      "background": "#181616AA",
+      "editor.background": "#181616AA",
+      "editor.gutter.background": "#181616AA",
+      "terminal.background": "#181616AA",
+      "panel.background": "#1d1c19AA",
+      "tab_bar.background": "#181616AA",
+      "title_bar.background": "#12120fAA",
+      "status_bar.background": "#12120fAA",
+      "toolbar.background": "#181616AA",
+      "surface.background": "#1d1c19AA",
+    },
     "Duskfox - opaque": {
       "title_bar.inactive_background": "#191726FF",
       "syntax": {
