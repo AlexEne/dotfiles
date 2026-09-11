@@ -168,6 +168,10 @@
   "theme_overrides": {
     "Duskfox - opaque": {
       "title_bar.inactive_background": "#191726FF",
+      "syntax": {
+        "property": { "color": "#a2c7e0" },
+        "function": { "color": "#65b1cd" },
+      },
     },
     "Gruvbox Dark Hard": {
       "panel.background": "#1d2021",
