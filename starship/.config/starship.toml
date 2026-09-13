@@ -22,7 +22,7 @@ $haskell\
 $line_break\
 \n$character"""
 
-palette = 'catppuccin_mocha'
+palette = 'duskfox'
 
 [os]
 disabled = false
@@ -159,6 +159,36 @@ style = "bg:lavender"
 disabled = false
 show_notifications = true
 min_time_to_notify = 45000
+
+[palettes.duskfox]
+# Official duskfox palette (from nightfox.nvim by EdenEast)
+# Segment colors used by this config
+red = "#eb6f92"
+peach = "#ea9a97"     # duskfox "orange"
+yellow = "#f6c177"
+green = "#a3be8c"
+sapphire = "#569fba"  # duskfox "blue"
+lavender = "#c4a7e7"  # duskfox "magenta"
+crust = "#232136"     # duskfox bg1 (text on segments)
+# Remaining core colors
+black = "#393552"
+blue = "#569fba"
+cyan = "#9ccfd8"
+magenta = "#c4a7e7"
+orange = "#ea9a97"
+pink = "#eb98c3"
+white = "#e0def4"
+comment = "#817c9c"
+# Background/foreground shades
+bg0 = "#191726"
+bg1 = "#232136"
+bg2 = "#2d2a45"
+bg3 = "#373354"
+bg4 = "#4b4673"
+fg0 = "#eae8ff"
+fg1 = "#e0def4"
+fg2 = "#cdcbe0"
+fg3 = "#6e6a86"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

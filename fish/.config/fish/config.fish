@@ -9,7 +9,7 @@
 # 00-path.fish    -> PATH modifications
 # 01-env.fish     -> Environment variables
 # 02-tools.fish   -> Tool initialization (mise, starship, zoxide, etc.)
-# 03-omarchy.fish -> Omarchy-style aliases
+# 03-aliases.fish  -> Shell aliases
 
 # If not running interactively, don't do anything
 status is-interactive; or return

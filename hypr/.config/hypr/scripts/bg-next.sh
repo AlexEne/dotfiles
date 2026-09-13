@@ -1,6 +1,6 @@
 #!/bin/bash
-BG_DIR="$HOME/.config/omarchy/current/theme/backgrounds"
-CURRENT_LINK="$HOME/.config/omarchy/current/background"
+BG_DIR="$HOME/.config/theme/backgrounds"
+CURRENT_LINK="$HOME/.config/theme/current-background"
 
 if [ ! -d "$BG_DIR" ]; then
   notify-send "Wallpaper" "No backgrounds directory found"
