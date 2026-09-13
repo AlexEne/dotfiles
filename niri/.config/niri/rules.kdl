@@ -1,0 +1,102 @@
+// Window rules — ported from windows.conf
+//
+// Dropped (no niri equivalent or unneeded):
+// - all opacity 1.0 rules (niri windows are opaque by default)
+// - tag +/- rules (niri has no window tags)
+// - idle_inhibit tag rule (apps use the idle-inhibit protocol directly)
+// - min_size/max_size constraints (niri has no size-constraint rules)
+// - no_focus rule for empty xwayland windows
+// - layerrule no_anim for walker
+
+// === Global behavior ===
+
+// Apps must not self-maximize / self-fullscreen on open
+// (hyprland: windowrule = suppress_event maximize, match:class .*)
+// New windows always open as normal 2/3-width columns.
+window-rule {
+    open-maximized false
+    open-fullscreen false
+}
+
+// === Floating windows (was: tag +floating-window) ===
+window-rule {
+    match app-id=r#"^(org\.gnome\.NautilusPreviewer|org\.gnome\.Evince|com\.gabm\.satty|TUI\.float|imv|mpv)$"#
+    open-floating true
+    default-column-width { fixed 875; }
+    default-window-height { fixed 600; }
+}
+
+// File open/save/upload popups float on top (hyprland "hover" rules)
+// Portal backends: gtk under Hyprland, GNOME under niri — match all of them.
+window-rule {
+    match app-id=r#"^xdg-desktop-portal"#
+    open-floating true
+    default-column-width { fixed 875; }
+    default-window-height { fixed 600; }
+}
+
+// App-native file dialogs (non-portal)
+window-rule {
+    match app-id=r#"^(sublime_text|DesktopEditors|org\.gnome\.Nautilus)$"# title=r#"^(Open.*Files?|Open [Ff]older.*|Save.*Files?|Save.*As|Save|All Files|.*wants to (open|save).*|.*[Cc]hoose.*|.*File Upload.*)$"#
+    open-floating true
+    default-column-width { fixed 875; }
+    default-window-height { fixed 600; }
+}
+
+// btop floats on top (hyprland: min_size 1920 1080 — niri has no min-size,
+// so open it floating at that size instead)
+window-rule {
+    match title=r#"^btop"#
+    open-floating true
+    default-column-width { fixed 1920; }
+    default-window-height { fixed 1080; }
+}
+window-rule {
+    match app-id=r#"(?i)btop"#
+    open-floating true
+    default-column-width { fixed 1920; }
+    default-window-height { fixed 1080; }
+}
+
+window-rule {
+    match app-id="org.gnome.Calculator"
+    open-floating true
+    default-column-width { fixed 707; }
+    default-window-height { fixed 747; }
+}
+
+window-rule {
+    match app-id="dwarf_things"
+    open-floating true
+}
+window-rule {
+    match title="Dwarf Things"
+    open-floating true
+}
+
+// === Steam ===
+// Main window: always floating, never fullscreen
+window-rule {
+    match app-id="steam" title="^Steam$"
+    open-floating true
+    open-fullscreen false
+    default-column-width { fixed 1670; }
+    default-window-height { fixed 1086; }
+}
+
+// Friends list (hyprland had size 300x600 + min/max; niri can't clamp size)
+window-rule {
+    match app-id="steam" title="Friends List"
+    open-floating true
+    default-column-width { fixed 300; }
+    default-window-height { fixed 600; }
+}
+
+// === Noctalia settings window floats (per Noctalia docs) ===
+// If this doesn't catch on niri, check the real app-id with: niri msg windows
+window-rule {
+    match app-id=r#"(?i)noctalia"#
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}

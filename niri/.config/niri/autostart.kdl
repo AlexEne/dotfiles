@@ -1,0 +1,16 @@
+// Autostart — ported from autostart.conf
+// Note: uwsm-app prefixes dropped; niri-session runs as a systemd service already.
+
+spawn-at-startup "mako"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// X11 app support (Discord, Steam, …) — niri has no built-in XWayland
+spawn-at-startup "xwayland-satellite"
+
+// Wallpaper, bar, lock screen, idle management: Noctalia
+spawn-sh-at-startup "qs -c noctalia-shell"
+
+// Push session environment into systemd/dbus for app activation fixes
+spawn-sh-at-startup "systemctl --user import-environment $(env | cut -d'=' -f1)"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd --all"

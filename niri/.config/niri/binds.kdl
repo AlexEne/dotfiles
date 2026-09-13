@@ -1,0 +1,225 @@
+// Keybindings — ported from bindings.conf, tiling.conf, media.conf,
+// clipboard.conf, utilities.conf
+//
+// "Mod" = Super (when running on a TTY). Dropped bindings that have no niri
+// equivalent are listed at the bottom of this file.
+
+binds {
+    // === Applications (bindings.conf) ===
+    Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Shift+E { spawn "nautilus" "--new-window"; }
+    Mod+Shift+B { spawn "firefox"; }
+    Mod+Shift+Alt+B { spawn "firefox" "--private-window"; }
+    Mod+Shift+Z allow-when-locked=true { spawn-sh "qs ipc -c noctalia-shell call volume muteInput"; }
+    Mod+Shift+N { spawn "ghostty" "-e" "nvim"; }
+    Mod+Shift+T { spawn "ghostty" "-e" "btop"; }
+    Mod+Shift+G { spawn "signal-desktop"; }
+
+    // Center active window (tiling)
+    Mod+Shift+C { center-column; }
+
+    // Wallpaper picker (Noctalia)
+    Mod+Ctrl+Space { spawn-sh "qs ipc -c noctalia-shell call wallpaper toggle"; }
+
+    // Screenshot area with editing (saved to ~/Pictures)
+    Mod+Shift+S { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }
+
+    // Dictation
+    Mod+D { spawn "wayscriber" "--active"; }
+
+    // Lock screen (Noctalia)
+    Mod+Ctrl+L allow-inhibiting=false { spawn-sh "qs ipc -c noctalia-shell call lockScreen lock"; }
+
+    // === Window/session control (tiling.conf) ===
+    Mod+W repeat=false { close-window; }
+    Ctrl+Alt+Delete { spawn-sh "~/.config/niri/scripts/close-all-windows.sh"; }
+
+    Mod+T { toggle-window-floating; }
+    Mod+F { fullscreen-window; }
+    Mod+Ctrl+F { toggle-windowed-fullscreen; }   // was fullscreenstate 0 2
+    Mod+Alt+F { maximize-window-to-edges; }      // was fullscreen 1 (true maximize)
+    Mod+P { maximize-column; }                   // was pseudo — closest tiling resize
+    Mod+O repeat=false { spawn-sh "~/.config/niri/scripts/window-pop.sh"; }
+
+    // Move focus with SUPER + arrow keys
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    // Switch workspaces: SUPER + 1..9, 0 (hyprland code:10–19)
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    // Move window to workspace: SUPER + SHIFT + 1..9, 0 (follows, like movetoworkspace)
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+    Mod+Shift+0 { move-window-to-workspace 10; }
+
+    // Move window silently (stay on current workspace): SUPER + SHIFT + ALT + 1..9, 0
+    Mod+Shift+Alt+1 { move-window-to-workspace 1 focus=false; }
+    Mod+Shift+Alt+2 { move-window-to-workspace 2 focus=false; }
+    Mod+Shift+Alt+3 { move-window-to-workspace 3 focus=false; }
+    Mod+Shift+Alt+4 { move-window-to-workspace 4 focus=false; }
+    Mod+Shift+Alt+5 { move-window-to-workspace 5 focus=false; }
+    Mod+Shift+Alt+6 { move-window-to-workspace 6 focus=false; }
+    Mod+Shift+Alt+7 { move-window-to-workspace 7 focus=false; }
+    Mod+Shift+Alt+8 { move-window-to-workspace 8 focus=false; }
+    Mod+Shift+Alt+9 { move-window-to-workspace 9 focus=false; }
+    Mod+Shift+Alt+0 { move-window-to-workspace 10 focus=false; }
+
+    // Scratchpad (named workspace — niri has no special workspaces)
+    Mod+S { focus-workspace "scratchpad"; }
+    Mod+Alt+S { move-window-to-workspace "scratchpad" focus=false; }
+
+    // TAB between workspaces
+    Mod+Tab { focus-workspace-down; }
+    Mod+Shift+Tab { focus-workspace-up; }
+    Mod+Ctrl+Tab { focus-workspace-previous; }
+
+    // Move workspaces to other monitors
+    Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
+    Mod+Shift+Alt+Right { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+Up    { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+Down  { move-workspace-to-monitor-down; }
+
+    // Swap windows
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down; }
+
+    // Cycle through applications → Noctalia launcher's window switcher
+    Alt+Tab       { spawn-sh "qs ipc -c noctalia-shell call launcher windows"; }
+    Alt+Shift+Tab { spawn-sh "qs ipc -c noctalia-shell call launcher windows"; }
+
+    // Resize active window (SUPER + -/=, heights with SHIFT)
+    Mod+Minus       { set-column-width "-10%"; }
+    Mod+Equal       { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Scroll through workspaces with SUPER + scroll
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+    // Groups → tabbed columns
+    Mod+G { toggle-column-tabbed-display; }
+    Mod+J { toggle-column-tabbed-display; }      // was togglesplit — same habit key
+    Mod+Alt+G { expel-window-from-column; }      // was moveoutofgroup
+    Mod+Alt+Left  { consume-or-expel-window-left; }
+    Mod+Alt+Right { consume-or-expel-window-right; }
+    Mod+Alt+Up    { consume-window-into-column; }
+    Mod+Alt+Down  { expel-window-from-column; }
+
+    // Keyboard layout switching sits where the dwindle↔scrolling toggle used to
+    // be (no-op with a single "us" layout; add layouts in input.kdl to use it)
+    Mod+L { switch-layout "next"; }
+
+    // Navigate windows inside a column (was: changegroupactive)
+    Mod+Alt+Tab       { focus-window-down; }
+    Mod+Alt+Shift+Tab { focus-window-up; }
+    Mod+Ctrl+Left     { focus-window-up; }
+    Mod+Ctrl+Right    { focus-window-down; }
+    Mod+Alt+WheelScrollDown { focus-window-down; }
+    Mod+Alt+WheelScrollUp   { focus-window-up; }
+
+    // === Media keys with OSD (media.conf) ===
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute         allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+
+    Alt+XF86AudioRaiseVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "+1"; }
+    Alt+XF86AudioLowerVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-1"; }
+    Alt+XF86MonBrightnessUp   allow-when-locked=true { spawn "swayosd-client" "--brightness" "+1"; }
+    Alt+XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "-1"; }
+
+    XF86AudioNext  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "next"; }
+    XF86AudioPause allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    XF86AudioPlay  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    XF86AudioPrev  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "previous"; }
+
+    Mod+XF86AudioMute allow-when-locked=true { spawn-sh "~/.config/niri/scripts/audio-switch.sh"; }
+
+    // === Clipboard (clipboard.conf) ===
+    // niri has no sendshortcut → wtype injects the key events instead
+    Mod+C { spawn-sh "wtype -M ctrl -k Insert -m ctrl"; }
+    Mod+V { spawn-sh "wtype -M shift -k Insert -m shift"; }
+    Mod+X { spawn-sh "wtype -M ctrl -k x -m ctrl"; }
+    Mod+Ctrl+V { spawn "walker" "-m" "clipboard" "--width" "644" "--maxheight" "300" "--minheight" "300"; }
+
+    // === Menus & utilities (utilities.conf) ===
+    Mod+Space { spawn-sh "pkill -x rofi || rofi -show drun"; }
+    Mod+Alt+Space { spawn "walker"; }
+    Mod+Ctrl+E { spawn-sh "qs ipc -c noctalia-shell call launcher emoji"; }
+    Mod+Escape { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
+    XF86PowerOff allow-when-locked=true { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
+    Mod+K { show-hotkey-overlay; }
+    XF86Calculator { spawn "gnome-calculator" "--mode=programming"; }
+
+    // Aesthetics
+    Mod+Shift+Space { spawn-sh "qs ipc -c noctalia-shell call bar toggle"; }   // was toggle-waybar.sh
+    Mod+Shift+Ctrl+Space { spawn-sh "~/.config/niri/scripts/theme-menu.sh"; }
+    Mod+BackSpace { toggle-window-rule-opacity; }   // was setprop opaque toggle —
+    // note: only has a visible effect if you add window rules with opacity < 1
+    // SUPER+SHIFT+BACKSPACE toggle-gaps dropped (niri gaps are config-only)
+
+    // Notifications (mako)
+    Mod+Comma { spawn "makoctl" "dismiss"; }
+    Mod+Shift+Comma { spawn "makoctl" "dismiss" "--all"; }
+    Mod+Ctrl+Comma { spawn-sh "makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send 'Silenced notifications' || notify-send 'Enabled notifications'"; }
+    Mod+Alt+Comma { spawn "makoctl" "invoke"; }
+    Mod+Shift+Alt+Comma { spawn "makoctl" "restore"; }
+
+    // Toggle idling (Noctalia idle inhibitor)
+    Mod+Ctrl+I { spawn-sh "qs ipc -c noctalia-shell call idleInhibitor toggle"; }
+
+    // === Captures ===
+    // Print: select a region, edit in satty (hyprland's click-a-window PRINT was
+    // hyprctl-based; region select is the portable equivalent)
+    Print { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
+    Shift+Print { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
+    Alt+Print { spawn-sh "wf-recorder -a -f \"$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4\" & notify-send 'Screen Recording' 'Started'"; }
+    Mod+Print { spawn-sh "~/.config/niri/scripts/pick-color.sh"; }
+
+    // File sharing
+    Mod+Ctrl+S { spawn-sh "rofi -dmenu -i -p \"Share\" -theme-str \"window { width: 380px; } listview { lines: 6; }\""; }
+
+    // Information
+    Mod+Ctrl+Alt+T { spawn-sh "notify-send \" $(date +'%A %H:%M  —  %d %B W%V %Y')\""; }
+    Mod+Ctrl+Alt+B { spawn-sh "notify-send \" Battery at $(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A')%\""; }
+
+    // Control panels
+    Mod+Ctrl+A { spawn "ghostty" "-e" "wiremix"; }
+    Mod+Ctrl+B { spawn-sh "rfkill unblock bluetooth; ghostty -e bluetui"; }
+    Mod+Ctrl+W { spawn-sh "rfkill unblock wifi; ghostty -e impala"; }
+    Mod+Ctrl+T { spawn "ghostty" "-e" "btop"; }
+
+    // Escape hatch: never let an app (VM, remote desktop) swallow this one
+    Mod+Alt+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}
+
+// === Dropped: no niri equivalent ===
+// SUPER+SHIFT+BACKSPACE — runtime gaps toggle (niri gaps are config-only)
+// SUPER+ALT+1..5 — focus group window by index
+// SUPER+LMB/RMB drag move/resize — niri 26.04 has no Mod+drag binds;
+//                  floating windows move via keyboard (focus, then Mod+arrows)
+// hyprpicker     — wlroots-only; replaced by scripts/pick-color.sh (SUPER+Print)

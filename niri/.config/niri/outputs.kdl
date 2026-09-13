@@ -1,0 +1,15 @@
+// Monitors — ported from monitors.conf
+// List monitors and available modes: niri msg outputs
+// Format: mode "<width>x<height>@<refresh>"
+
+// Note: niri has no 10-bit color support; hyprland's `bitdepth,10` is dropped.
+
+// 38" ultrawide (retina-ish setups: pair with GDK_SCALE=2 in config.kdl)
+output "DP-1" {
+    mode "3840x1600@144"
+    // scale: auto (hyprland's `auto` resolved to 1 on this panel)
+    // scale 1
+}
+
+// Straight 1x fallback for low-resolution displays (1080p/1440p):
+// output "DP-1" { mode "preferred"; scale 1 }

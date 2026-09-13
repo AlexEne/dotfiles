@@ -1,0 +1,89 @@
+// Look and feel — ported from looknfeel.conf
+
+layout {
+    // niri gaps are uniform
+    gaps 4
+
+    // New windows open at 2/3 of the screen width.
+    // (Requested: "default 2/3 when the screen is empty" — niri has no empty-workspace
+    // conditional, but it never auto-fullscreens, so every new column starts at 2/3.)
+    default-column-width { proportion 0.66667; }
+
+    // A single column on a workspace stays centered
+    always-center-single-column
+
+    // Widths cycled by switch-preset-column-width
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
+    center-focused-column "never"
+
+    // Border replaces the focus ring (hyprland draws only borders too)
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        // hyprland effective active border: $activeBorderColor = rgba(c6d0f5ba)
+        // (hyprland.conf's final assignment, overriding looknfeel.conf's gradient
+        // and the theme file's 7aa2f7)
+        active-color "#c6d0f5ba"
+        inactive-color "#595959aa"
+        urgent-color "#9b0000"
+    }
+
+    // hyprland: shadow range=2 render_power=3 color=1a1a1aee (kept subtle)
+    shadow {
+        on
+        softness 8
+        spread 3
+        offset x=0 y=3
+        color "#1a1a1aee"
+    }
+
+    // Replaces hyprland's groupbar (groups → tabbed columns in niri)
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        corner-radius 4
+        active-color "#c6d0f5ba"
+        inactive-color "#595959aa"
+    }
+}
+
+// Rounded corners for all windows (hyprland: decoration.rounding = 8)
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+// Blur (niri 26.04+) — parameters only; nothing enables blur right now.
+// hyprland: blur size=2 passes=2 brightness=0.60 contrast=0.75
+// (niri's blur has no brightness/contrast knobs; saturation 1.0 is neutral.)
+blur {
+    passes 2
+    offset 2
+    noise 0.02
+    saturation 1.2
+}
+
+// REMOVED: blanket window-rule blur — it made everything unreadable on this setup.
+// If you later want frosted Noctalia surfaces (bar/launcher/dock) only, add:
+//
+// layer-rule {
+//     match namespace="^noctalia"
+//     background-effect {
+//         xray false
+//     }
+// }
+
+// Animations: niri defaults are already fast; hyprland's `quick` bezier
+// (workspaces fade) has no 1:1 mapping — tweak `animations {}` here if wanted.
+animations {
+    // slowdown 1.0
+}

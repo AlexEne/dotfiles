@@ -1,0 +1,32 @@
+// Input devices — ported from input.conf
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "ctrl:nocaps"
+        }
+        repeat-delay 200
+        repeat-rate 35
+        numlock
+    }
+
+    mouse {
+        accel-speed -0.3
+        accel-profile "flat"
+    }
+
+    touchpad {
+        // natural_scroll = false in hyprland → natural-scroll simply omitted here
+        scroll-factor 0.4
+        tap
+    }
+
+    // follow_mouse = 1
+    focus-follows-mouse
+
+    // Focusing the workspace you're already on bounces back to the previous one
+    workspace-auto-back-and-forth
+
+    // key_press_enables_dpms / mouse_move_enables_dpms are niri defaults
+}

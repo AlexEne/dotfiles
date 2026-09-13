@@ -1,0 +1,63 @@
+// Niri config — ported from the Hyprland setup in ~/dotfiles/hypr
+// Docs: https://niri-wm.github.io/niri/Configuration:-Introduction
+// Validate after edits: niri validate -c ~/.config/niri/config.kdl
+
+include "outputs.kdl"
+include "input.kdl"
+include "layout.kdl"
+include "rules.kdl"
+include "autostart.kdl"
+include "binds.kdl"
+
+// Environment (from hypr envs.conf).
+// Dropped Hyprland-only vars: HYPRCURSOR_SIZE, NVD_BACKEND,
+// XDG_CURRENT_DESKTOP / XDG_SESSION_DESKTOP / XDG_SESSION_TYPE (niri/session set these).
+environment {
+    XCURSOR_SIZE "24"
+
+    // Force all apps to use Wayland
+    GDK_BACKEND "wayland,x11,*"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_STYLE_OVERRIDE "kvantum"
+    GTK_THEME "Catppuccin-Dark"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    OZONE_PLATFORM "wayland"
+
+    // NVIDIA
+    LIBVA_DRIVER_NAME "nvidia"
+    __GLX_VENDOR_LIBRARY_NAME "nvidia"
+
+    // HiDPI (paired with the monitor scale in outputs.kdl)
+    GDK_SCALE "2"
+
+    // Use XCompose file
+    XCOMPOSEFILE "~/.XCompose"
+}
+
+// Don't show the "Important Hotkeys" popup on every login (SUPER+K shows it on demand)
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+// Cursor
+cursor {
+    xcursor-size 24
+    hide-when-typing
+}
+
+// Ask clients to omit client-side decorations (needed for clean niri borders/rounding)
+prefer-no-csd
+
+// Screenshots from niri's built-in actions land here (same naming as scripts/screenshot.sh)
+screenshot-path "~/Pictures/screenshot-%Y-%m-%d-%H-%M-%S.png"
+
+// "Scratchpad" — niri has no special workspaces, so this named workspace plays that role
+// (SUPER+S jumps to it, SUPER+ALT+S sends a window there — see binds.kdl)
+workspace "scratchpad"
+
+// Lets Noctalia trigger window activation / notification actions
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
