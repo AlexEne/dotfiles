@@ -42,4 +42,4 @@ hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd([[notify-send " Battery at $(c
 hl.bind("SUPER + CTRL + A", hl.dsp.exec_cmd("uwsm-app -- ghostty -e wiremix"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("bash -c 'rfkill unblock bluetooth; uwsm-app -- ghostty -e bluetui'"))
 hl.bind("SUPER + CTRL + W", hl.dsp.exec_cmd("bash -c 'rfkill unblock wifi; uwsm-app -- ghostty -e impala'"))
-hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd("uwsm-app -- ghostty -e btop"))
+hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd("~/.config/hypr/scripts/launch-or-focus.sh btop btop"))

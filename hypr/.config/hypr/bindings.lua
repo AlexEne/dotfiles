@@ -12,8 +12,8 @@ hl.bind("SUPER + SHIFT + ALT + B", hl.dsp.exec_cmd("uwsm-app -- firefox --privat
 hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("qs ipc -c noctalia-shell call volume muteInput"))
 -- Editor
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("uwsm-app -- ghostty -e nvim"))
--- Activity (btop)
-hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("uwsm-app -- ghostty -e btop"))
+-- Activity (btop) — floating, launch-or-focus
+hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("~/.config/hypr/scripts/launch-or-focus.sh btop btop"))
 -- Signal
 hl.bind("SUPER + SHIFT + G", hl.dsp.exec_cmd("uwsm-app -- signal-desktop"))
 -- Center active window

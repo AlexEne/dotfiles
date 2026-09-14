@@ -72,7 +72,7 @@ hl.window_rule({
 -- Floating windows
 hl.window_rule({
     name  = "tag-floating-apps",
-    match = { class = "(org.omarchy.bluetui|org.omarchy.impala|org.omarchy.wiremix|org.omarchy.btop|org.omarchy.terminal|org.omarchy.bash|org.gnome.NautilusPreviewer|org.gnome.Evince|com.gabm.satty|Omarchy|About|TUI.float|imv|mpv)" },
+    match = { class = "(tui.bluetui|tui.impala|tui.wiremix|tui.btop|tui.terminal|tui.bash|org.gnome.NautilusPreviewer|org.gnome.Evince|com.gabm.satty|Omarchy|About|TUI.float|imv|mpv)" },
     tag   = "+floating-window",
 })
 hl.window_rule({

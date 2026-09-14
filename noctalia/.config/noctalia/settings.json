@@ -590,7 +590,7 @@
         "diskCriticalThreshold": 90,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
-        "externalMonitor": "ghostty -e btop",
+        "externalMonitor": "~/.config/hypr/scripts/launch-or-focus.sh btop btop",
         "gpuCriticalThreshold": 90,
         "gpuWarningThreshold": 80,
         "memCriticalThreshold": 90,

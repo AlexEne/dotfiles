@@ -46,6 +46,6 @@ hl.config({
 
 hl.window_rule({
     name     = "btop-min-size",
-    match    = { class = "^(org\\.omarchy\\.btop)$" },
+    match    = { class = "^(tui\\.btop)$" },
     min_size = { 1920, 1080 },
 })
