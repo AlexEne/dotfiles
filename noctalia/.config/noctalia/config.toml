@@ -89,6 +89,12 @@ right = "panel-toggle control-center"
 
 # ── Widgets ───────────────────────────────────────────────────────────────────
 
+# Launcher: Arch logo instead of the default magnifying glass
+# (brand-arch glyph doesn't exist in Noctalia's bundled Tabler subset)
+[widget.launcher]
+custom_image          = "/home/alex/.config/Wallpapers/arch_logo.png"
+custom_image_colorize = true
+
 # mouse-battery plugin widget (enabled below in [plugins])
 [widget.mouse_battery]
 type = "alex/mouse-battery:battery"
@@ -98,13 +104,18 @@ type = "alex/mouse-battery:battery"
 [widget.screen_recorder]
 type = "noctalia/screen_recorder:recorder"
 
-[widget.control-center]
-custom_image          = "/home/alex/dotfiles/wallpapers/.config/Wallpapers/arch_logo.png"
-custom_image_colorize = true
-
 [widget.clock]
 format         = "{:%H:%M}"
 tooltip_format = "{:%H:%M %a, %b %d}"
+
+# Middle-click opens btop (v4 systemMonitor.externalMonitor behavior;
+# overrides v5's default middle-click-opens-settings)
+[widget.sysmon.actions]
+middle = "exec /home/alex/.config/hypr/scripts/launch-or-focus.sh btop btop"
+
+# Middle-click opens the volume mixer (as in v4)
+[widget.volume.actions]
+middle = "exec pwvucontrol || pavucontrol"
 
 # ── Plugins ───────────────────────────────────────────────────────────────────
 # screen_recorder comes from the built-in official source (fetch+enable happens
