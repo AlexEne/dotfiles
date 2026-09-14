@@ -9,7 +9,7 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "xwayland-satellite"
 
 // Wallpaper, bar, lock screen, idle management: Noctalia
-spawn-sh-at-startup "qs -c noctalia-shell"
+spawn-at-startup "noctalia"
 
 // Push session environment into systemd/dbus for app activation fixes
 spawn-sh-at-startup "systemctl --user import-environment $(env | cut -d'=' -f1)"

@@ -1,0 +1,138 @@
+# Noctalia v5 configuration (hand-written layer).
+# Noctalia reads every *.toml in ~/.config/noctalia, merged alphabetically.
+# GUI Settings writes to ~/.local/state/noctalia/settings.toml and OVERRIDES
+# any key also defined here — tweak a key in one place only.
+# Reference: `example.toml` in the noctalia repo / docs.noctalia.dev
+
+# ── Shell ─────────────────────────────────────────────────────────────────────
+
+[shell]
+time_format = "{:%H:%M}"
+avatar_path = "~/.face"
+
+[shell.animation]
+speed = 1.5 # v4 animationSpeed
+
+# ── Wallpaper ─────────────────────────────────────────────────────────────────
+
+[wallpaper]
+enabled             = true
+directory           = "/home/alex/.config/Wallpapers"
+fill_mode           = "crop"
+transition          = ["fade", "disc", "stripes", "wipe", "honeycomb"]
+transition_duration = 1500
+edge_smoothness     = 0.05
+
+# ── Theme ─────────────────────────────────────────────────────────────────────
+
+[theme]
+mode             = "dark"
+source           = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+# ── Location & Weather ────────────────────────────────────────────────────────
+
+[location]
+address = "London"
+
+[weather]
+enabled = true
+unit    = "celsius"
+
+# ── Audio ─────────────────────────────────────────────────────────────────────
+
+[audio]
+enable_overdrive = true # v4 volumeOverdrive (allow up to 150%)
+
+# ── Idle ──────────────────────────────────────────────────────────────────────
+# Parity with v4 (idle.enabled): screen off 600s, lock 660s, suspend 1800s.
+# v5's lockscreen also locks before suspend via logind by default.
+# Toggle all of this at runtime with: noctalia msg caffeine-toggle
+
+[idle.behavior.screen-off]
+timeout = 600
+action  = "screen_off"
+enabled = true
+
+[idle.behavior.lock]
+timeout = 660
+action  = "lock"
+enabled = true
+
+[idle.behavior.suspend]
+timeout = 1800
+action  = "suspend"
+enabled = true
+
+# ── Hooks ─────────────────────────────────────────────────────────────────────
+
+[hooks]
+session_locked = ["playerctl pause"]
+
+# ── Bar ───────────────────────────────────────────────────────────────────────
+
+[bar.main]
+position           = "top"
+background_opacity = 0.88
+margin_ends        = 4
+margin_edge        = 4
+widget_spacing     = 4
+capsule            = false
+
+start  = ["launcher", "workspaces"]
+center = []
+end    = ["tray", "sysmon", "volume", "mouse_battery", "screen_recorder", "notifications", "control-center", "clock"]
+
+# Clicking empty bar space: right-click opens the control center (as in v4)
+[bar.main.dead_zone.actions]
+right = "panel-toggle control-center"
+
+# ── Widgets ───────────────────────────────────────────────────────────────────
+
+# mouse-battery plugin widget (enabled below in [plugins])
+[widget.mouse_battery]
+type = "alex/mouse-battery:battery"
+
+# screen recorder plugin widget (official source)
+# left = toggle recording, right = replay toggle, middle = save replay
+[widget.screen_recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.control-center]
+custom_image          = "/home/alex/dotfiles/wallpapers/.config/Wallpapers/arch_logo.png"
+custom_image_colorize = true
+
+[widget.clock]
+format         = "{:%H:%M}"
+tooltip_format = "{:%H:%M %a, %b %d}"
+
+# ── Plugins ───────────────────────────────────────────────────────────────────
+# screen_recorder comes from the built-in official source (fetch+enable happens
+# automatically on startup; if it doesn't, run:
+#   noctalia msg plugins enable noctalia/screen_recorder
+# then add its bar widget via Settings → Bar, or middle-click a widget).
+
+[plugins]
+enabled     = ["alex/mouse-battery", "noctalia/screen_recorder"]
+auto_update = "official"
+
+# NOTE: declaring any [[plugins.source]] replaces the built-in source list,
+# so the built-in official/community sources are declared explicitly here.
+[[plugins.source]]
+name     = "official"
+kind     = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+enabled  = true
+
+[[plugins.source]]
+name     = "community"
+kind     = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+enabled  = true
+
+# Local plugin development source (this repo)
+[[plugins.source]]
+name     = "dotfiles"
+kind     = "path"
+location = "~/dotfiles/noctalia/v5-plugins"
+enabled  = true

@@ -1,0 +1,23 @@
+id          = "alex/mouse-battery"
+name        = "Mouse Battery"
+version     = "1.0.0"
+plugin_api  = 24 # argv-array noctalia.runAsync()
+author      = "alex"
+license     = "MIT"
+description = "Display mouse battery level from Solaar"
+icon        = "mouse"
+tags        = ["hardware"]
+dependencies = ["solaar", "python3"]
+
+[[setting]]
+key             = "interval"
+type            = "int"
+label_key       = "settings.interval.label"
+description_key = "settings.interval.description"
+default         = 900
+min             = 30
+max             = 3600
+
+[[widget]]
+id    = "battery"
+entry = "widget.luau"

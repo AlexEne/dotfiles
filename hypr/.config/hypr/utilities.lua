@@ -3,7 +3,7 @@
 -- Menus
 hl.bind("SUPER + SPACE",       hl.dsp.exec_cmd("pkill -x rofi || rofi -show drun"))
 hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("omarchy-menu"))
-hl.bind("SUPER + CTRL + E",    hl.dsp.exec_cmd("qs ipc -c noctalia-shell call launcher emoji"))
+hl.bind("SUPER + CTRL + E",    hl.dsp.exec_cmd([[noctalia msg panel-toggle launcher "/emo"]]))
 hl.bind("SUPER + ESCAPE",      hl.dsp.exec_cmd("~/.config/hypr/scripts/power-menu.sh"))
 hl.bind("XF86PowerOff",        hl.dsp.exec_cmd("~/.config/hypr/scripts/power-menu.sh"), { locked = true })
 hl.bind("SUPER + K",           hl.dsp.exec_cmd("hyprctl binds"))
@@ -22,8 +22,8 @@ hl.bind("SUPER + CTRL + COMMA",      hl.dsp.exec_cmd([[makoctl mode -t do-not-di
 hl.bind("SUPER + ALT + COMMA",       hl.dsp.exec_cmd("makoctl invoke"))
 hl.bind("SUPER + SHIFT + ALT + COMMA", hl.dsp.exec_cmd("makoctl restore"))
 
--- Toggle idling
-hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-idle.sh"))
+-- Toggle idling (Noctalia caffeine / idle inhibitor)
+hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 
 -- Captures
 -- (plain PRINT is overridden in bindings.lua -> omarchy-cmd-screenshot windows)

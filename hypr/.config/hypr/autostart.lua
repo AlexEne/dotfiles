@@ -4,7 +4,7 @@
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm-app -- mako")
-    hl.exec_cmd("uwsm-app -- swaybg -i ~/.config/omarchy/current/background -m fill")
+    -- Wallpaper is managed by Noctalia (no swaybg needed)
     hl.exec_cmd("uwsm-app -- swayosd-server")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
@@ -12,5 +12,5 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user import-environment $(env | cut -d'=' -f1)")
     hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 
-    hl.exec_cmd("qs -c noctalia-shell")
+    hl.exec_cmd("noctalia")
 end)

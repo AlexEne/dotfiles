@@ -1,0 +1,4 @@
+{
+  "settings.interval.label": "Refresh interval (seconds)",
+  "settings.interval.description": "How often the widget polls solaar for the battery level."
+}

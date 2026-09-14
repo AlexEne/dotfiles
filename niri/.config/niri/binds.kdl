@@ -10,7 +10,7 @@ binds {
     Mod+Shift+E { spawn "nautilus" "--new-window"; }
     Mod+Shift+B { spawn "firefox"; }
     Mod+Shift+Alt+B { spawn "firefox" "--private-window"; }
-    Mod+Shift+Z allow-when-locked=true { spawn-sh "qs ipc -c noctalia-shell call volume muteInput"; }
+    Mod+Shift+Z allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
     Mod+Shift+N { spawn "ghostty" "-e" "nvim"; }
     Mod+Shift+T { spawn "ghostty" "-e" "btop"; }
     Mod+Shift+G { spawn "signal-desktop"; }
@@ -19,7 +19,7 @@ binds {
     Mod+Shift+C { center-column; }
 
     // Wallpaper picker (Noctalia)
-    Mod+Ctrl+Space { spawn-sh "qs ipc -c noctalia-shell call wallpaper toggle"; }
+    Mod+Ctrl+Space { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
 
     // Screenshot area with editing (saved to ~/Pictures)
     Mod+Shift+S { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }
@@ -28,7 +28,7 @@ binds {
     Mod+D { spawn "wayscriber" "--active"; }
 
     // Lock screen (Noctalia)
-    Mod+Ctrl+L allow-inhibiting=false { spawn-sh "qs ipc -c noctalia-shell call lockScreen lock"; }
+    Mod+Ctrl+L allow-inhibiting=false { spawn "noctalia" "msg" "session" "lock"; }
 
     // === Window/session control (tiling.conf) ===
     Mod+W repeat=false { close-window; }
@@ -104,9 +104,9 @@ binds {
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Down  { move-window-down; }
 
-    // Cycle through applications → Noctalia launcher's window switcher
-    Alt+Tab       { spawn-sh "qs ipc -c noctalia-shell call launcher windows"; }
-    Alt+Shift+Tab { spawn-sh "qs ipc -c noctalia-shell call launcher windows"; }
+    // Cycle through applications → Noctalia window switcher
+    Alt+Tab       { spawn "noctalia" "msg" "window-switcher"; }
+    Alt+Shift+Tab { spawn "noctalia" "msg" "window-switcher"; }
 
     // Resize active window (SUPER + -/=, heights with SHIFT)
     Mod+Minus       { set-column-width "-10%"; }
@@ -169,14 +169,14 @@ binds {
     // === Menus & utilities (utilities.conf) ===
     Mod+Space { spawn-sh "pkill -x rofi || rofi -show drun"; }
     Mod+Alt+Space { spawn "walker"; }
-    Mod+Ctrl+E { spawn-sh "qs ipc -c noctalia-shell call launcher emoji"; }
+    Mod+Ctrl+E { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
     Mod+Escape { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
     XF86PowerOff allow-when-locked=true { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
     Mod+K { show-hotkey-overlay; }
     XF86Calculator { spawn "gnome-calculator" "--mode=programming"; }
 
     // Aesthetics
-    Mod+Shift+Space { spawn-sh "qs ipc -c noctalia-shell call bar toggle"; }   // was toggle-waybar.sh
+    Mod+Shift+Space { spawn "noctalia" "msg" "bar-toggle"; }   // was toggle-waybar.sh
     Mod+Shift+Ctrl+Space { spawn-sh "~/.config/niri/scripts/theme-menu.sh"; }
     Mod+BackSpace { toggle-window-rule-opacity; }   // was setprop opaque toggle —
     // note: only has a visible effect if you add window rules with opacity < 1
@@ -189,8 +189,8 @@ binds {
     Mod+Alt+Comma { spawn "makoctl" "invoke"; }
     Mod+Shift+Alt+Comma { spawn "makoctl" "restore"; }
 
-    // Toggle idling (Noctalia idle inhibitor)
-    Mod+Ctrl+I { spawn-sh "qs ipc -c noctalia-shell call idleInhibitor toggle"; }
+    // Toggle idling (Noctalia caffeine / idle inhibitor)
+    Mod+Ctrl+I { spawn "noctalia" "msg" "caffeine-toggle"; }
 
     // === Captures ===
     // Print: select a region, edit in satty (hyprland's click-a-window PRINT was
