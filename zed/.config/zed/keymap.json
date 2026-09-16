@@ -93,6 +93,13 @@
     },
   },
   {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
+    },
+  },
+  {
     "context": "vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
