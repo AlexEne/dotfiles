@@ -34,6 +34,7 @@
       "shift-alt-k": "editor::AddSelectionAbove", // Insert cursor above
       "shift-alt-j": "editor::AddSelectionBelow", // Insert cursor below
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }], // editor.action.addSelectionToNextFindMatch / find_under_expand
+      "ctrl-i": "agent::ToggleFocus",
     },
   },
   {
