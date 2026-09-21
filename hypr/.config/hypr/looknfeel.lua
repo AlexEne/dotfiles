@@ -83,6 +83,9 @@ hl.config({
 
     cursor = {
         hide_on_key_press = true,
+        -- Force hardware cursors (NVIDIA) so grim/slurp screenshots don't
+        -- capture the mouse pointer (software cursors get baked into frames).
+        no_hardware_cursors = 0,
     },
 })
 

@@ -26,7 +26,7 @@ hl.bind("SUPER + SHIFT + ALT + COMMA", hl.dsp.exec_cmd("makoctl restore"))
 hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 
 -- Captures
--- (plain PRINT is overridden in bindings.lua -> omarchy-cmd-screenshot windows)
+-- (plain PRINT is overridden in bindings.lua -> screenshot-window.sh: click a window to capture)
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy]]))
 hl.bind("ALT + PRINT",   hl.dsp.exec_cmd([[wf-recorder -a -f "$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4" & notify-send "Screen Recording" "Started"]]))
 hl.bind("SUPER + PRINT", hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -a"))

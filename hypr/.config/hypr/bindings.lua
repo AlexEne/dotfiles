@@ -25,8 +25,8 @@ hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle wallp
 -- Screenshot area with editing (always saved to ~/Pictures)
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
 
--- PrintScreen: pick a window to screenshot (replaces the default grim+satty area shot)
-hl.bind("PRINT", hl.dsp.exec_cmd("omarchy-cmd-screenshot windows"))
+-- PrintScreen: click a window to screenshot it (saved to ~/Pictures, edited in satty)
+hl.bind("PRINT", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot-window.sh"))
 
 -- Dictation
 hl.bind("SUPER + D", hl.dsp.exec_cmd("wayscriber --active"))
