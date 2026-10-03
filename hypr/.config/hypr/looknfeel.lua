@@ -109,7 +109,9 @@ hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQu
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces", enabled = false })
+-- niri-like workspace switch: critically damped spring (mirrors niri's default: damping-ratio=1.0, stiffness=1000, mass=1)
+hl.curve("niriSpring", { type = "spring", mass = 1, stiffness = 1000, dampening = 63.25 })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, spring = "niriSpring", style = "slidevert" })
 
 -- gum confirm theming
 hl.env("GUM_CONFIRM_PROMPT_FOREGROUND", "6")
