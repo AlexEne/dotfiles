@@ -18,6 +18,14 @@ window-rule {
     open-fullscreen false
 }
 
+// Firefox Picture-in-Picture hovers over the layout
+window-rule {
+    match app-id="firefox" title="Picture-in-Picture"
+    open-floating true
+    default-column-width { fixed 1280; }
+    default-window-height { fixed 720; }
+}
+
 // === Floating windows (was: tag +floating-window) ===
 window-rule {
     match app-id=r#"^(org\.gnome\.NautilusPreviewer|org\.gnome\.Evince|com\.gabm\.satty|TUI\.float|imv|mpv)$"#

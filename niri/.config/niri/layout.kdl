@@ -4,9 +4,6 @@ layout {
     // niri gaps are uniform
     gaps 4
 
-    // New windows open at 50% of the screen width.
-    // (niri has no empty-workspace conditional; every new column starts at 50%.
-    // Single columns are centered by always-center-single-column below.)
     default-column-width { proportion 0.5; }
 
     // A single column on a workspace stays centered
@@ -22,7 +19,7 @@ layout {
 
     center-focused-column "never"
 
-    // Border replaces the focus ring (hyprland draws only borders too)
+    // Border replaces the focus ring 
     focus-ring {
         off
     }
@@ -30,15 +27,11 @@ layout {
     border {
         on
         width 2
-        // hyprland effective active border: $activeBorderColor = rgba(c6d0f5ba)
-        // (hyprland.conf's final assignment, overriding looknfeel.conf's gradient
-        // and the theme file's 7aa2f7)
         active-color "#c6d0f5ba"
         inactive-color "#595959aa"
         urgent-color "#9b0000"
     }
 
-    // hyprland: shadow range=2 render_power=3 color=1a1a1aee (kept subtle)
     shadow {
         on
         softness 8
@@ -47,7 +40,6 @@ layout {
         color "#1a1a1aee"
     }
 
-    // Replaces hyprland's groupbar (groups → tabbed columns in niri)
     tab-indicator {
         hide-when-single-tab
         place-within-column
@@ -57,15 +49,11 @@ layout {
     }
 }
 
-// Rounded corners for all windows (hyprland: decoration.rounding = 8)
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
 }
 
-// Blur (niri 26.04+) — parameters only; nothing enables blur right now.
-// hyprland: blur size=2 passes=2 brightness=0.60 contrast=0.75
-// (niri's blur has no brightness/contrast knobs; saturation 1.0 is neutral.)
 blur {
     passes 2
     offset 2
