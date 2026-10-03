@@ -16,7 +16,7 @@ environment {
     XCURSOR_SIZE "24"
 
     // Force all apps to use Wayland
-    GDK_BACKEND "wayland,x11,*"
+    // (no GDK_BACKEND: niri docs warn a global value breaks the screencast portal)
     QT_QPA_PLATFORM "wayland;xcb"
     QT_STYLE_OVERRIDE "kvantum"
     GTK_THEME "Catppuccin-Dark"
@@ -60,4 +60,8 @@ workspace "scratchpad"
 // Lets Noctalia trigger window activation / notification actions
 debug {
     honor-xdg-activation-with-invalid-serial
+}
+
+window-rule {
+  draw-border-with-background false
 }

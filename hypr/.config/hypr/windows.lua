@@ -193,6 +193,17 @@ hl.window_rule({
     center     = true,
 })
 
+-- Battle.net main window: always start floating, never fullscreen
+-- (runs under Proton/XWayland, so the class comes from the exe name)
+hl.window_rule({
+    name       = "battlenet-main-window",
+    match      = { class = "^(?i)battle\\.net", title = "^Battle\\.net$" },
+    float      = true,
+    fullscreen = false,
+    size       = { 1670, 1086 },
+    center     = true,
+})
+
 -- Disable animations for walker
 hl.layer_rule({
     name    = "walker-no-anim",

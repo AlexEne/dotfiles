@@ -3,43 +3,47 @@
 //
 // "Mod" = Super (when running on a TTY). Dropped bindings that have no niri
 // equivalent are listed at the bottom of this file.
+//
+// hotkey-overlay-title = the label shown in the Super+K cheat sheet.
+// (Untitled spawn binds show up there with no description.)
 
 binds {
     // === Applications (bindings.conf) ===
     Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
-    Mod+Shift+E { spawn "nautilus" "--new-window"; }
-    Mod+Shift+B { spawn "firefox"; }
-    Mod+Shift+Alt+B { spawn "firefox" "--private-window"; }
-    Mod+Shift+Z allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
-    Mod+Shift+N { spawn "ghostty" "-e" "nvim"; }
-    Mod+Shift+T { spawn "ghostty" "-e" "btop"; }
-    Mod+Shift+G { spawn "signal-desktop"; }
+    Mod+Shift+E hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus" "--new-window"; }  // File manager
+    Mod+Shift+B hotkey-overlay-title="Browser: Firefox" { spawn "firefox"; }                        // Browser
+    Mod+Shift+Alt+B hotkey-overlay-title="Browser: Firefox (private)" { spawn "firefox" "--private-window"; }  // Browser (private)
+    Mod+Shift+Z allow-when-locked=true hotkey-overlay-title="Toggle Mic Mute (global)" { spawn "noctalia" "msg" "mic-mute"; }  // Global mic mute (Noctalia)
+    Mod+Shift+N hotkey-overlay-title="Editor: nvim" { spawn "ghostty" "-e" "nvim"; }                // Editor (nvim)
+    Mod+Shift+T hotkey-overlay-title="System Monitor: btop" { spawn "ghostty" "-e" "btop"; }        // System monitor
+    Mod+Shift+G hotkey-overlay-title="Signal" { spawn "signal-desktop"; }                           // Signal messenger
 
     // Center active window (tiling)
     Mod+Shift+C { center-column; }
 
-    // Wallpaper picker (Noctalia)
-    Mod+Ctrl+Space { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
+    // Wallpaper picker (Noctalia panel)
+    Mod+Ctrl+Space hotkey-overlay-title="Wallpaper Picker" { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
 
     // Screenshot area with editing (saved to ~/Pictures)
-    Mod+Shift+S { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }
+    Mod+Shift+S hotkey-overlay-title="Screenshot: region + edit" { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }
 
-    // Dictation
-    Mod+D { spawn "wayscriber" "--active"; }
+    // Dictation (wayscriber speech-to-text)
+    Mod+D hotkey-overlay-title="Dictation" { spawn "wayscriber" "--active"; }
 
-    // Lock screen (Noctalia)
-    Mod+Ctrl+L allow-inhibiting=false { spawn "noctalia" "msg" "session" "lock"; }
+    // Lock screen (Noctalia session lock)
+    Mod+Ctrl+L allow-inhibiting=false hotkey-overlay-title="Lock Screen" { spawn "noctalia" "msg" "session" "lock"; }
 
     // === Window/session control (tiling.conf) ===
-    Mod+W repeat=false { close-window; }
-    Ctrl+Alt+Delete { spawn-sh "~/.config/niri/scripts/close-all-windows.sh"; }
+    Mod+W repeat=false { close-window; }                    // Close focused window
+    Ctrl+Alt+Delete hotkey-overlay-title="Close ALL Windows" { spawn-sh "~/.config/niri/scripts/close-all-windows.sh"; }  // Close ALL windows
 
-    Mod+T { toggle-window-floating; }
-    Mod+F { fullscreen-window; }
-    Mod+Ctrl+F { toggle-windowed-fullscreen; }   // was fullscreenstate 0 2
+    Mod+T { toggle-window-floating; }                       // Float ↔ tile
+    Mod+F { fullscreen-window; }                            // True fullscreen
+    Mod+Ctrl+F { toggle-windowed-fullscreen; }   // was fullscreenstate 0 2 — fake fullscreen, keeps its tile
     Mod+Alt+F { maximize-window-to-edges; }      // was fullscreen 1 (true maximize)
-    Mod+P { maximize-column; }                   // was pseudo — closest tiling resize
-    Mod+O repeat=false { spawn-sh "~/.config/niri/scripts/window-pop.sh"; }
+    Mod+P { switch-preset-column-width; }        // cycle 33% / 50% / 67% / 100%
+    Mod+O repeat=false hotkey-overlay-title="Pop Out Window (float 1300x900)" { spawn-sh "~/.config/niri/scripts/window-pop.sh"; }  // custom: scripts/window-pop.sh
+    Mod+Shift+O repeat=false { toggle-overview; }           // Zoomed-out overview of all workspaces
 
     // Move focus with SUPER + arrow keys
     Mod+Left  { focus-column-left; }
@@ -105,8 +109,8 @@ binds {
     Mod+Shift+Down  { move-window-down; }
 
     // Cycle through applications → Noctalia window switcher
-    Alt+Tab       { spawn "noctalia" "msg" "window-switcher"; }
-    Alt+Shift+Tab { spawn "noctalia" "msg" "window-switcher"; }
+    Alt+Tab       hotkey-overlay-title="Window Switcher" { spawn "noctalia" "msg" "window-switcher"; }
+    Alt+Shift+Tab hotkey-overlay-title="Window Switcher" { spawn "noctalia" "msg" "window-switcher"; }
 
     // Resize active window (SUPER + -/=, heights with SHIFT)
     Mod+Minus       { set-column-width "-10%"; }
@@ -140,78 +144,80 @@ binds {
     Mod+Alt+WheelScrollUp   { focus-window-up; }
 
     // === Media keys with OSD (media.conf) ===
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
-    XF86AudioMute         allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    XF86AudioRaiseVolume  allow-when-locked=true hotkey-overlay-title="Volume Up" { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume  allow-when-locked=true hotkey-overlay-title="Volume Down" { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute         allow-when-locked=true hotkey-overlay-title="Mute Volume" { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioMicMute      allow-when-locked=true hotkey-overlay-title="Mute Microphone" { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true hotkey-overlay-title="Brightness Up" { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness Down" { spawn "swayosd-client" "--brightness" "lower"; }
 
+    // ALT + media key = fine-grained 1% steps
     Alt+XF86AudioRaiseVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "+1"; }
     Alt+XF86AudioLowerVolume  allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-1"; }
     Alt+XF86MonBrightnessUp   allow-when-locked=true { spawn "swayosd-client" "--brightness" "+1"; }
     Alt+XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "-1"; }
 
-    XF86AudioNext  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "next"; }
-    XF86AudioPause allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
-    XF86AudioPlay  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "play-pause"; }
-    XF86AudioPrev  allow-when-locked=true { spawn "swayosd-client" "--playerctl" "previous"; }
+    XF86AudioNext  allow-when-locked=true hotkey-overlay-title="Next Track" { spawn "swayosd-client" "--playerctl" "next"; }
+    XF86AudioPause allow-when-locked=true hotkey-overlay-title="Play / Pause" { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    XF86AudioPlay  allow-when-locked=true hotkey-overlay-title="Play / Pause" { spawn "swayosd-client" "--playerctl" "play-pause"; }
+    XF86AudioPrev  allow-when-locked=true hotkey-overlay-title="Previous Track" { spawn "swayosd-client" "--playerctl" "previous"; }
 
-    Mod+XF86AudioMute allow-when-locked=true { spawn-sh "~/.config/niri/scripts/audio-switch.sh"; }
+    // Switch default audio output (SUPER + hardware mute key)
+    Mod+XF86AudioMute allow-when-locked=true hotkey-overlay-title="Switch Audio Output" { spawn-sh "~/.config/niri/scripts/audio-switch.sh"; }
 
     // === Clipboard (clipboard.conf) ===
     // niri has no sendshortcut → wtype injects the key events instead
-    Mod+C { spawn-sh "wtype -M ctrl -k Insert -m ctrl"; }
-    Mod+V { spawn-sh "wtype -M shift -k Insert -m shift"; }
-    Mod+X { spawn-sh "wtype -M ctrl -k x -m ctrl"; }
-    Mod+Ctrl+V { spawn "walker" "-m" "clipboard" "--width" "644" "--maxheight" "300" "--minheight" "300"; }
+    Mod+C hotkey-overlay-title="Copy (Ctrl+Insert)" { spawn-sh "wtype -M ctrl -k Insert -m ctrl"; }       // Copy (Ctrl+Insert)
+    Mod+V hotkey-overlay-title="Paste (Shift+Insert)" { spawn-sh "wtype -M shift -k Insert -m shift"; }   // Paste (Shift+Insert)
+    Mod+X hotkey-overlay-title="Cut (Ctrl+X)" { spawn-sh "wtype -M ctrl -k x -m ctrl"; }                  // Cut (Ctrl+X)
+    Mod+Ctrl+V hotkey-overlay-title="Clipboard History (walker)" { spawn "walker" "-m" "clipboard" "--width" "644" "--maxheight" "300" "--minheight" "300"; }  // Clipboard history (walker)
 
     // === Menus & utilities (utilities.conf) ===
-    Mod+Space { spawn-sh "pkill -x rofi || rofi -show drun"; }
-    Mod+Alt+Space { spawn "walker"; }
-    Mod+Ctrl+E { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
-    Mod+Escape { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
-    XF86PowerOff allow-when-locked=true { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }
-    Mod+K { show-hotkey-overlay; }
-    XF86Calculator { spawn "gnome-calculator" "--mode=programming"; }
+    Mod+Space hotkey-overlay-title="App Launcher (rofi)" { spawn-sh "pkill -x rofi || rofi -show drun"; }   // App launcher (rofi; press again to close)
+    Mod+Alt+Space hotkey-overlay-title="App Launcher (walker)" { spawn "walker"; }                          // App launcher (walker)
+    Mod+Ctrl+E hotkey-overlay-title="Emoji Picker" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }  // Emoji picker (Noctalia launcher)
+    Mod+Escape hotkey-overlay-title="Power Menu" { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }       // Power menu
+    XF86PowerOff allow-when-locked=true hotkey-overlay-title="Power Menu" { spawn-sh "~/.config/niri/scripts/power-menu.sh"; }  // Power menu (hardware key)
+    Mod+K { show-hotkey-overlay; }                          // Hotkey cheat sheet (this overlay)
+    XF86Calculator hotkey-overlay-title="Calculator" { spawn "gnome-calculator" "--mode=programming"; }     // Calculator
 
     // Aesthetics
-    Mod+Shift+Space { spawn "noctalia" "msg" "bar-toggle"; }   // was toggle-waybar.sh
-    Mod+Shift+Ctrl+Space { spawn-sh "~/.config/niri/scripts/theme-menu.sh"; }
+    Mod+Shift+Space hotkey-overlay-title="Toggle Bar" { spawn "noctalia" "msg" "bar-toggle"; }   // Toggle bar (Noctalia) — was toggle-waybar.sh
+    Mod+Shift+Ctrl+Space hotkey-overlay-title="Theme Menu" { spawn-sh "~/.config/niri/scripts/theme-menu.sh"; }  // Theme switcher menu
     Mod+BackSpace { toggle-window-rule-opacity; }   // was setprop opaque toggle —
     // note: only has a visible effect if you add window rules with opacity < 1
     // SUPER+SHIFT+BACKSPACE toggle-gaps dropped (niri gaps are config-only)
 
     // Notifications (mako)
-    Mod+Comma { spawn "makoctl" "dismiss"; }
-    Mod+Shift+Comma { spawn "makoctl" "dismiss" "--all"; }
-    Mod+Ctrl+Comma { spawn-sh "makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send 'Silenced notifications' || notify-send 'Enabled notifications'"; }
-    Mod+Alt+Comma { spawn "makoctl" "invoke"; }
-    Mod+Shift+Alt+Comma { spawn "makoctl" "restore"; }
+    Mod+Comma hotkey-overlay-title="Dismiss Notification" { spawn "makoctl" "dismiss"; }                // Dismiss top notification
+    Mod+Shift+Comma hotkey-overlay-title="Dismiss All Notifications" { spawn "makoctl" "dismiss" "--all"; }  // Dismiss all notifications
+    Mod+Ctrl+Comma hotkey-overlay-title="Toggle Do Not Disturb" { spawn-sh "makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send 'Silenced notifications' || notify-send 'Enabled notifications'"; }  // Toggle do-not-disturb
+    Mod+Alt+Comma hotkey-overlay-title="Trigger Notification Action" { spawn "makoctl" "invoke"; }      // Trigger notification's default action
+    Mod+Shift+Alt+Comma hotkey-overlay-title="Restore Dismissed Notification" { spawn "makoctl" "restore"; }  // Restore last dismissed
 
     // Toggle idling (Noctalia caffeine / idle inhibitor)
-    Mod+Ctrl+I { spawn "noctalia" "msg" "caffeine-toggle"; }
+    Mod+Ctrl+I hotkey-overlay-title="Toggle Idle Inhibitor (caffeine)" { spawn "noctalia" "msg" "caffeine-toggle"; }
 
     // === Captures ===
     // Print: select a region, edit in satty (hyprland's click-a-window PRINT was
     // hyprctl-based; region select is the portable equivalent)
-    Print { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }
-    Shift+Print { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
-    Alt+Print { spawn-sh "wf-recorder -a -f \"$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4\" & notify-send 'Screen Recording' 'Started'"; }
-    Mod+Print { spawn-sh "~/.config/niri/scripts/pick-color.sh"; }
+    Print hotkey-overlay-title="Screenshot: region → annotate (satty)" { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }   // Region → annotate in satty
+    Shift+Print hotkey-overlay-title="Screenshot: region → clipboard" { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }        // Region → clipboard
+    Alt+Print hotkey-overlay-title="Screen Recording: start (with audio)" { spawn-sh "wf-recorder -a -f \"$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4\" & notify-send 'Screen Recording' 'Started'"; }  // Screen recording (with audio)
+    Mod+Print hotkey-overlay-title="Color Picker" { spawn-sh "~/.config/niri/scripts/pick-color.sh"; }      // Color picker
 
     // File sharing
-    Mod+Ctrl+S { spawn-sh "rofi -dmenu -i -p \"Share\" -theme-str \"window { width: 380px; } listview { lines: 6; }\""; }
+    Mod+Ctrl+S hotkey-overlay-title="Share File" { spawn-sh "rofi -dmenu -i -p \"Share\" -theme-str \"window { width: 380px; } listview { lines: 6; }\""; }
 
     // Information
-    Mod+Ctrl+Alt+T { spawn-sh "notify-send \" $(date +'%A %H:%M  —  %d %B W%V %Y')\""; }
-    Mod+Ctrl+Alt+B { spawn-sh "notify-send \" Battery at $(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A')%\""; }
+    Mod+Ctrl+Alt+T hotkey-overlay-title="Show Date & Time" { spawn-sh "notify-send \" $(date +'%A %H:%M  —  %d %B W%V %Y')\""; }
+    Mod+Ctrl+Alt+B hotkey-overlay-title="Show Battery Level" { spawn-sh "notify-send \" Battery at $(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A')%\""; }
 
     // Control panels
-    Mod+Ctrl+A { spawn "ghostty" "-e" "wiremix"; }
-    Mod+Ctrl+B { spawn-sh "rfkill unblock bluetooth; ghostty -e bluetui"; }
-    Mod+Ctrl+W { spawn-sh "rfkill unblock wifi; ghostty -e impala"; }
-    Mod+Ctrl+T { spawn "ghostty" "-e" "btop"; }
+    Mod+Ctrl+A hotkey-overlay-title="Audio Mixer (wiremix)" { spawn "ghostty" "-e" "wiremix"; }           // Audio mixer
+    Mod+Ctrl+B hotkey-overlay-title="Bluetooth Manager (bluetui)" { spawn-sh "rfkill unblock bluetooth; ghostty -e bluetui"; }  // Bluetooth manager
+    Mod+Ctrl+W hotkey-overlay-title="Wi-Fi Manager (impala)" { spawn-sh "rfkill unblock wifi; ghostty -e impala"; }             // Wi-Fi manager
+    Mod+Ctrl+T hotkey-overlay-title="System Monitor: btop" { spawn "ghostty" "-e" "btop"; }               // System monitor
 
     // Escape hatch: never let an app (VM, remote desktop) swallow this one
     Mod+Alt+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

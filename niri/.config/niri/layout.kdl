@@ -4,15 +4,15 @@ layout {
     // niri gaps are uniform
     gaps 4
 
-    // New windows open at 2/3 of the screen width.
-    // (Requested: "default 2/3 when the screen is empty" — niri has no empty-workspace
-    // conditional, but it never auto-fullscreens, so every new column starts at 2/3.)
-    default-column-width { proportion 0.66667; }
+    // New windows open at 50% of the screen width.
+    // (niri has no empty-workspace conditional; every new column starts at 50%.
+    // Single columns are centered by always-center-single-column below.)
+    default-column-width { proportion 0.5; }
 
     // A single column on a workspace stays centered
     always-center-single-column
 
-    // Widths cycled by switch-preset-column-width
+    // Widths cycled by switch-preset-column-width (Mod+P): 33 / 50 / 67 / 100%
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -28,6 +28,7 @@ layout {
     }
 
     border {
+        on
         width 2
         // hyprland effective active border: $activeBorderColor = rgba(c6d0f5ba)
         // (hyprland.conf's final assignment, overriding looknfeel.conf's gradient
