@@ -21,9 +21,6 @@ environment {
     LIBVA_DRIVER_NAME "nvidia"
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
 
-    // HiDPI (paired with the monitor scale in outputs.kdl)
-    GDK_SCALE "2"
-
     // Use XCompose file
     XCOMPOSEFILE "~/.XCompose"
 }

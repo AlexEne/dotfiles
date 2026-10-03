@@ -24,12 +24,13 @@ hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 -- HiDPI - retina displays (monitors.lua overrides)
-hl.env("GDK_SCALE", "2")
+-- hl.env("GDK_SCALE", "2")
+
 
 hl.config({
-    xwayland = {
-        force_zero_scaling = true,
-    },
+  xwayland = {
+    force_zero_scaling = true,
+  },
 })
 
 -- Use XCompose file
@@ -37,7 +38,7 @@ hl.env("XCOMPOSEFILE", "~/.XCompose")
 
 -- Don't show update on first launch
 hl.config({
-    ecosystem = {
-        no_update_news = true,
-    },
+  ecosystem = {
+    no_update_news = true,
+  },
 })
