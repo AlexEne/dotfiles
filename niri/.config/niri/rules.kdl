@@ -116,3 +116,12 @@ window-rule {
     default-column-width { fixed 1080; }
     default-window-height { fixed 920; }
 }
+
+// === Privacy: hide the file manager from screen capture (OBS etc.) ===
+// Replaced with a solid black rectangle in portal/PipeWire screencasts.
+// Local screenshots (grim/Print) still capture it — use "screen-capture"
+// instead of "screencast" if you want it blocked from those too.
+window-rule {
+    match app-id=r#"^org\.gnome\.Nautilus(Previewer)?$"#
+    block-out-from "screencast"
+}
