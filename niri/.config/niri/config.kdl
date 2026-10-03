@@ -1,7 +1,3 @@
-// Niri config — ported from the Hyprland setup in ~/dotfiles/hypr
-// Docs: https://niri-wm.github.io/niri/Configuration:-Introduction
-// Validate after edits: niri validate -c ~/.config/niri/config.kdl
-
 include "outputs.kdl"
 include "input.kdl"
 include "layout.kdl"
@@ -9,9 +5,6 @@ include "rules.kdl"
 include "autostart.kdl"
 include "binds.kdl"
 
-// Environment (from hypr envs.conf).
-// Dropped Hyprland-only vars: HYPRCURSOR_SIZE, NVD_BACKEND,
-// XDG_CURRENT_DESKTOP / XDG_SESSION_DESKTOP / XDG_SESSION_TYPE (niri/session set these).
 environment {
     XCURSOR_SIZE "24"
 

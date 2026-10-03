@@ -12,11 +12,9 @@ binds {
     Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
     Mod+Shift+E hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus" "--new-window"; }  // File manager
     Mod+Shift+B hotkey-overlay-title="Browser: Firefox" { spawn "firefox"; }                        // Browser
-    Mod+Shift+Alt+B hotkey-overlay-title="Browser: Firefox (private)" { spawn "firefox" "--private-window"; }  // Browser (private)
     Mod+Shift+Z allow-when-locked=true hotkey-overlay-title="Toggle Mic Mute (global)" { spawn "noctalia" "msg" "mic-mute"; }  // Global mic mute (Noctalia)
     Mod+Shift+N hotkey-overlay-title="Editor: nvim" { spawn "ghostty" "-e" "nvim"; }                // Editor (nvim)
     Mod+Shift+T hotkey-overlay-title="System Monitor: btop" { spawn "ghostty" "-e" "btop"; }        // System monitor
-    Mod+Shift+G hotkey-overlay-title="Signal" { spawn "signal-desktop"; }                           // Signal messenger
 
     // Center active window (tiling)
     Mod+Shift+C { center-column; }
@@ -27,10 +25,10 @@ binds {
     // Screenshot area with editing (saved to ~/Pictures)
     Mod+Shift+S hotkey-overlay-title="Screenshot: region + edit" { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }
 
-    // Dictation (wayscriber speech-to-text)
-    Mod+D hotkey-overlay-title="Dictation" { spawn "wayscriber" "--active"; }
+    // Wayscriber 
+    Mod+D hotkey-overlay-title="Wayscriber" { spawn "wayscriber" "--active"; }
 
-    // Lock screen (Noctalia session lock)
+    // Lock screen 
     Mod+Ctrl+L allow-inhibiting=false hotkey-overlay-title="Lock Screen" { spawn "noctalia" "msg" "session" "lock"; }
 
     // === Window/session control (tiling.conf) ===
@@ -87,7 +85,6 @@ binds {
     Mod+Shift+Alt+9 { move-window-to-workspace 9 focus=false; }
     Mod+Shift+Alt+0 { move-window-to-workspace 10 focus=false; }
 
-    // Scratchpad (named workspace — niri has no special workspaces)
     Mod+S { focus-workspace "scratchpad"; }
     Mod+Alt+S { move-window-to-workspace "scratchpad" focus=false; }
 
@@ -204,7 +201,7 @@ binds {
     Print hotkey-overlay-title="Screenshot: region → annotate (satty)" { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }   // Region → annotate in satty
     Shift+Print hotkey-overlay-title="Screenshot: region → clipboard" { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }        // Region → clipboard
     Alt+Print hotkey-overlay-title="Screen Recording: start (with audio)" { spawn-sh "wf-recorder -a -f \"$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4\" & notify-send 'Screen Recording' 'Started'"; }  // Screen recording (with audio)
-    Mod+Print hotkey-overlay-title="Color Picker" { spawn-sh "~/.config/niri/scripts/pick-color.sh"; }      // Color picker
+    Mod+Print hotkey-overlay-title="Color Picker (hyprpicker)" { spawn "hyprpicker" "-a"; }   // Live preview picker, copies #hex
 
     // File sharing
     Mod+Ctrl+S hotkey-overlay-title="Share File" { spawn-sh "rofi -dmenu -i -p \"Share\" -theme-str \"window { width: 380px; } listview { lines: 6; }\""; }
@@ -222,10 +219,3 @@ binds {
     // Escape hatch: never let an app (VM, remote desktop) swallow this one
     Mod+Alt+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
-
-// === Dropped: no niri equivalent ===
-// SUPER+SHIFT+BACKSPACE — runtime gaps toggle (niri gaps are config-only)
-// SUPER+ALT+1..5 — focus group window by index
-// SUPER+LMB/RMB drag move/resize — niri 26.04 has no Mod+drag binds;
-//                  floating windows move via keyboard (focus, then Mod+arrows)
-// hyprpicker     — wlroots-only; replaced by scripts/pick-color.sh (SUPER+Print)
