@@ -51,8 +51,10 @@
     "dark": "Colored Zed Icons Theme Dark",
   },
   "agent": {
+    "threads_sidebar": {
+      "position": "right"
+    },
     "button": false,
-    "sidebar_side": "right",
     "dock": "right",
     "default_profile": "write",
     "default_model": {
