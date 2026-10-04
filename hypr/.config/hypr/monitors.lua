@@ -9,6 +9,7 @@ hl.monitor({
     position = "auto",
     scale    = "auto",
     bitdepth = 10,
+    vrr = 1,
 })
 
 -- Good compromise for 27" or 32" 4K monitors (but fractional!)
