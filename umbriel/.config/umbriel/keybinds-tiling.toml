@@ -1,0 +1,123 @@
+# Tiling / window management bindings (tiling.lua)
+# Defining [keybinds] replaces Umbriel's built-in bind set entirely.
+# Syntax: https://docs.noctalia.dev/umbriel/keybinds/
+# Actions: https://docs.noctalia.dev/umbriel/actions/
+#
+# Hyprland used keycodes (code:10..19) for number binds; Umbriel binds by
+# keysym with an ASCII fallback across layouts — equivalent on a us layout.
+
+[keybinds]
+
+# Close windows
+"Mod+W" = { action = "window-close", repeat = false }
+"Ctrl+Alt+Delete" = { action = "spawn:~/.config/umbriel/scripts/close-all-windows.sh", repeat = false }
+
+# Tiling control
+# NOT PORTED: SUPER+J layoutmsg togglesplit and SUPER+P pseudo have no
+# equivalent — dwindle always splits along the longer edge.
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+# fullscreenstate 0 2 has no equivalent; this is fullscreen 1 (maximized):
+"Mod+Alt+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+O" = { action = "spawn:~/.config/umbriel/scripts/window-pop.sh", repeat = false }
+# (Umbriel's built-in overview lives on overview-toggle if you want a bind for it)
+
+# Focus with SUPER + arrows
+"Mod+Left" = "window-focus-left"
+"Mod+Right" = "window-focus-right"
+"Mod+Up" = "window-focus-up"
+"Mod+Down" = "window-focus-down"
+
+# Workspaces with SUPER + [1-9, 0]
+"Mod+1" = { action = "workspace-switch:1", repeat = false }
+"Mod+2" = { action = "workspace-switch:2", repeat = false }
+"Mod+3" = { action = "workspace-switch:3", repeat = false }
+"Mod+4" = { action = "workspace-switch:4", repeat = false }
+"Mod+5" = { action = "workspace-switch:5", repeat = false }
+"Mod+6" = { action = "workspace-switch:6", repeat = false }
+"Mod+7" = { action = "workspace-switch:7", repeat = false }
+"Mod+8" = { action = "workspace-switch:8", repeat = false }
+"Mod+9" = { action = "workspace-switch:9", repeat = false }
+"Mod+0" = { action = "workspace-switch:10", repeat = false }
+
+# Move window to workspace (follow)
+"Mod+Shift+1" = { action = "window-move-to-workspace:1", repeat = false }
+"Mod+Shift+2" = { action = "window-move-to-workspace:2", repeat = false }
+"Mod+Shift+3" = { action = "window-move-to-workspace:3", repeat = false }
+"Mod+Shift+4" = { action = "window-move-to-workspace:4", repeat = false }
+"Mod+Shift+5" = { action = "window-move-to-workspace:5", repeat = false }
+"Mod+Shift+6" = { action = "window-move-to-workspace:6", repeat = false }
+"Mod+Shift+7" = { action = "window-move-to-workspace:7", repeat = false }
+"Mod+Shift+8" = { action = "window-move-to-workspace:8", repeat = false }
+"Mod+Shift+9" = { action = "window-move-to-workspace:9", repeat = false }
+"Mod+Shift+0" = { action = "window-move-to-workspace:10", repeat = false }
+
+# Move window silently (don't follow)
+"Mod+Shift+Alt+1" = { action = "window-move-to-workspace-silent:1", repeat = false }
+"Mod+Shift+Alt+2" = { action = "window-move-to-workspace-silent:2", repeat = false }
+"Mod+Shift+Alt+3" = { action = "window-move-to-workspace-silent:3", repeat = false }
+"Mod+Shift+Alt+4" = { action = "window-move-to-workspace-silent:4", repeat = false }
+"Mod+Shift+Alt+5" = { action = "window-move-to-workspace-silent:5", repeat = false }
+"Mod+Shift+Alt+6" = { action = "window-move-to-workspace-silent:6", repeat = false }
+"Mod+Shift+Alt+7" = { action = "window-move-to-workspace-silent:7", repeat = false }
+"Mod+Shift+Alt+8" = { action = "window-move-to-workspace-silent:8", repeat = false }
+"Mod+Shift+Alt+9" = { action = "window-move-to-workspace-silent:9", repeat = false }
+"Mod+Shift+Alt+0" = { action = "window-move-to-workspace-silent:10", repeat = false }
+
+# Scratchpad (Hyprland special:scratchpad → Umbriel's implicit "default")
+"Mod+S" = { action = "scratchpad-toggle", repeat = false }
+"Mod+Alt+S" = { action = "window-move-to-scratchpad", repeat = false }
+
+# TAB between workspaces
+"Mod+Tab" = { action = "workspace-next", cooldown_ms = 100 }
+"Mod+Shift+Tab" = { action = "workspace-previous", cooldown_ms = 100 }
+"Mod+Ctrl+Tab" = { action = "workspace-focus-last", repeat = false }
+
+# Move workspace to other monitors
+"Mod+Shift+Alt+Left" = { action = "workspace-move-to-output-left", repeat = false }
+"Mod+Shift+Alt+Right" = { action = "workspace-move-to-output-right", repeat = false }
+"Mod+Shift+Alt+Up" = { action = "workspace-move-to-output-up", repeat = false }
+"Mod+Shift+Alt+Down" = { action = "workspace-move-to-output-down", repeat = false }
+
+# Swap windows
+"Mod+Shift+Left" = "window-swap-left"
+"Mod+Shift+Right" = "window-swap-right"
+"Mod+Shift+Up" = "window-swap-up"
+"Mod+Shift+Down" = "window-swap-down"
+
+# Cycle through applications
+# (Hyprland's bringactivetotop has no equivalent; focusing raises in Umbriel)
+"Alt+Tab" = { action = "window-focus-next", repeat = false }
+"Alt+Shift+Tab" = { action = "window-focus-previous", repeat = false }
+
+# Resize active window
+# Hyprland resized in pixels (±100); Umbriel uses fractions of the column/
+# usable extent, delta -0.9..0.9.
+"Mod+minus" = "window-modify-primary-extent:-0.05"
+"Mod+equal" = "window-modify-primary-extent:0.05"
+"Mod+Shift+minus" = "window-modify-secondary-extent:-0.05"
+"Mod+Shift+equal" = "window-modify-secondary-extent:0.05"
+
+# Scroll through workspaces with SUPER + scroll
+"Mod+WheelDown" = { action = "workspace-next", cooldown_ms = 150 }
+"Mod+WheelUp" = { action = "workspace-previous", cooldown_ms = 150 }
+
+# Move/resize with mouse: built in — Mod+Left-drag moves, Mod+Right-drag
+# resizes (edge = one axis, corner = both). No binds needed.
+
+# ------------------------------------------------------------------------------
+# Groups → tab groups (Hyprland group* dispatchers have no direct equivalent;
+# Umbriel columns become tabbed instead. https://docs.noctalia.dev/umbriel/layout/#tab-groups)
+"Mod+G" = { action = "column-toggle-tabbed", repeat = false }
+
+# Navigate tabs (Hyprland: changegroupactive)
+"Mod+Alt+Tab" = { action = "column-focus-tab-next", repeat = false }
+"Mod+Alt+Shift+Tab" = { action = "column-focus-tab-previous", repeat = false }
+"Mod+Ctrl+Left" = { action = "column-focus-tab-previous", repeat = false }
+"Mod+Ctrl+Right" = { action = "column-focus-tab-next", repeat = false }
+"Mod+Alt+WheelDown" = "column-focus-tab-next"
+"Mod+Alt+WheelUp" = "column-focus-tab-previous"
+
+# NOT PORTED: moveintogroup / moveoutofgroup / changegroupactive <index> —
+# no documented Umbriel actions. Drag a window onto/away from a tab bar,
+# or use window-move-* near a tabbed column.

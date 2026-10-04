@@ -1,0 +1,27 @@
+# Layout (looknfeel.lua: general/dwindle/master sections)
+
+[layout]
+# Hyprland: general.layout = "dwindle"
+mode = "dwindle"
+# Hyprland had gaps_in = 2 / gaps_out = 3; Umbriel uses a single gap value.
+gap = 2
+extent_presets = [0.333, 0.5, 0.667]
+
+[layout.dwindle]
+# Hyprland: dwindle.preserve_split = true
+preserve_split = true
+# Hyprland: dwindle.force_split = 2 (new window right/bottom) is Umbriel's
+# default behavior; set new_toward_cursor = true for force_split = 0 instead.
+
+[layout.master]
+# Hyprland: master.new_status = "master"
+new_becomes_master = true
+
+# Hyprland groups (SUPER+G, groupbar) are replaced by Umbriel tab groups.
+# See keybinds-tiling.toml. Bar defaults below match the stock appearance;
+# uncomment to tune.
+# [appearance.tab_bar]
+# style = "titles"
+# position = "top"
+# height = 22
+# font = "monospace 10"

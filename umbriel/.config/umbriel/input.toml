@@ -1,0 +1,32 @@
+# Input devices (input.lua)
+
+[input.keyboard]
+layout = "us"
+options = "ctrl:nocaps"
+repeat_rate = 35
+repeat_delay = 300
+# Hyprland: numlock_by_default = true
+numlock_toggle = true
+
+[input.mouse]
+accel_profile = "flat"
+sensitivity = -0.2
+
+[input.touchpad]
+natural_scroll = false
+scroll_factor = 0.4
+
+[input.cursor]
+size = 24
+# Hyprland: cursor.hide_on_key_press = true
+hide_when_typing = true
+# Force hardware cursors (NVIDIA) so grim/slurp screenshots don't capture
+# the mouse pointer (Hyprland: no_hardware_cursors = 0).
+hardware_cursor = true
+
+[input.focus]
+# Hyprland: input.follow_mouse = 1
+follows_mouse = true
+
+# NOT PORTED: windowrule scroll_touchpad 2.2 for ghostty — Umbriel has no
+# per-window scroll factor (scroll_factor above is the global touchpad one).

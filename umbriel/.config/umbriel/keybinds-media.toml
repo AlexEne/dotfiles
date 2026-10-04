@@ -1,0 +1,24 @@
+# Media keys with OSD (media.lua)
+# Hyprland bindle+bindl → Umbriel binds repeat by default; allow_when_locked
+# replaces the "locked" flag.
+
+[keybinds]
+
+"XF86AudioRaiseVolume" = { action = "spawn:swayosd-client --output-volume raise", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn:swayosd-client --output-volume lower", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn:swayosd-client --output-volume mute-toggle", allow_when_locked = true }
+"XF86AudioMicMute" = { action = "spawn:swayosd-client --input-volume mute-toggle", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn:swayosd-client --brightness raise", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn:swayosd-client --brightness lower", allow_when_locked = true }
+
+"Alt+XF86AudioRaiseVolume" = { action = "spawn:swayosd-client --output-volume +1", allow_when_locked = true }
+"Alt+XF86AudioLowerVolume" = { action = "spawn:swayosd-client --output-volume -1", allow_when_locked = true }
+"Alt+XF86MonBrightnessUp" = { action = "spawn:swayosd-client --brightness +1", allow_when_locked = true }
+"Alt+XF86MonBrightnessDown" = { action = "spawn:swayosd-client --brightness -1", allow_when_locked = true }
+
+"XF86AudioNext" = { action = "spawn:swayosd-client --playerctl next", allow_when_locked = true }
+"XF86AudioPause" = { action = "spawn:swayosd-client --playerctl play-pause", allow_when_locked = true }
+"XF86AudioPlay" = { action = "spawn:swayosd-client --playerctl play-pause", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn:swayosd-client --playerctl previous", allow_when_locked = true }
+
+"Mod+XF86AudioMute" = { action = "spawn:~/.config/hypr/scripts/audio-switch.sh", allow_when_locked = true }

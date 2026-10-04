@@ -1,0 +1,29 @@
+# Look and feel (looknfeel.lua: decoration + border colors)
+
+[appearance]
+border_width = 2
+corner_radius = 8
+
+[appearance.blur]
+enabled = true
+radius = 3
+passes = 2
+brightness = 0.60
+contrast = 0.75
+
+# Hyprland: decoration.shadow { range = 2, render_power = 3 }
+[appearance.shadow]
+enabled = true
+softness = 2
+
+[colors]
+# Hyprland: decoration.shadow.color = rgba(1a1a1aee)
+shadow = "#1A1A1AEE"
+
+[colors.border]
+# Final override from hyprland.lua: rgba(c6d0f5ba)
+focused = "#C6D0F5BA"
+# Hyprland: col.inactive_border = rgba(595959aa)
+unfocused = "#595959AA"
+# Hyprland's gradient active border (33ccff/00ff99) was always overridden by
+# the flat color above; Umbriel border colors are flat anyway.

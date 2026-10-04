@@ -1,0 +1,40 @@
+# Animations (looknfeel.lua curves + hl.animation calls)
+# Hyprland animation "speed" is in units of 100ms (speed 4.79 ≈ 479ms).
+
+[animation]
+enabled = true
+
+# Hyprland's "myBezier" (0.005, 0.9, 0.1, 1.02) is not portable: Umbriel
+# requires bezier x coordinates in 0..1.
+[animation.beziers]
+easeOutQuint = [0.23, 1.0, 0.32, 1.0]
+almostLinear = [0.5, 0.5, 0.75, 1.0]
+quick = [0.15, 0.0, 0.1, 1.0]
+
+# Hyprland: windowsIn, 1, 4.1, easeOutQuint, popin 87%
+[animation.windows_in]
+curve = "easeOutQuint"
+duration_ms = 410
+style = "popin"
+scale = 0.87
+
+# Hyprland: windowsOut, 1, 1.49, linear, popin 87%
+[animation.windows_out]
+curve = "linear"
+duration_ms = 149
+style = "popin"
+scale = 0.87
+
+# Hyprland: border, 1, 5.39, easeOutQuint
+[animation.border]
+curve = "easeOutQuint"
+duration_ms = 539
+
+# Hyprland: animation = workspaces, 0, ... (disabled)
+[animation.workspaces]
+enabled = true
+
+# Hyprland animated layers but no_anim'd walker + noctalia. Umbriel has no
+# per-namespace animation control, so layer animations stay off globally.
+[animation.layers]
+enabled = false

@@ -1,0 +1,53 @@
+# Utility bindings (utilities.lua)
+# Compositor-agnostic helper scripts still live in ~/.config/hypr/scripts/.
+
+[keybinds]
+
+# Menus
+"Mod+Space" = { action = "spawn:pkill -x rofi || rofi -show drun", repeat = false }
+"Mod+Alt+Space" = { action = "spawn:omarchy-menu", repeat = false }
+"Mod+Ctrl+E" = { action = 'spawn:noctalia msg panel-toggle launcher "/emo"', repeat = false }
+"Mod+Escape" = { action = "spawn:~/.config/hypr/scripts/power-menu.sh", repeat = false }
+"XF86PowerOff" = { action = "spawn:~/.config/hypr/scripts/power-menu.sh", allow_when_locked = true, repeat = false }
+
+# Hyprland: hyprctl binds → Umbriel's built-in cheatsheet
+"Mod+K" = { action = "cheatsheet-toggle", repeat = false }
+"XF86Calculator" = { action = "spawn:gnome-calculator --mode=programming", repeat = false }
+
+# Aesthetics
+"Mod+Shift+Space" = { action = "spawn:~/.config/hypr/scripts/toggle-waybar.sh", repeat = false }
+"Mod+Shift+Ctrl+Space" = { action = "spawn:~/.config/hypr/scripts/theme-menu.sh", repeat = false }
+# NOT PORTED:
+#   SUPER+BACKSPACE (hyprctl setprop opaque toggle) — no runtime property override
+#   SUPER+SHIFT+BACKSPACE (toggle-gaps.sh) — gaps are global config only;
+#     edit layout.toml and let the live reload apply them
+
+# Notifications
+"Mod+Comma" = { action = "spawn:makoctl dismiss", repeat = false }
+"Mod+Shift+Comma" = { action = "spawn:makoctl dismiss --all", repeat = false }
+"Mod+Ctrl+Comma" = { action = 'spawn:makoctl mode -t do-not-disturb && makoctl mode | grep -q "do-not-disturb" && notify-send "Silenced notifications" || notify-send "Enabled notifications"', repeat = false }
+"Mod+Alt+Comma" = { action = "spawn:makoctl invoke", repeat = false }
+"Mod+Shift+Alt+Comma" = { action = "spawn:makoctl restore", repeat = false }
+
+# Toggle idling (Noctalia caffeine / idle inhibitor)
+"Mod+Ctrl+I" = { action = "spawn:noctalia msg caffeine-toggle", repeat = false }
+
+# Captures
+# (plain PRINT is bound in keybinds-apps.toml → screenshot-window.sh)
+"Shift+Print" = { action = 'spawn:grim -g "$(slurp)" - | wl-copy', repeat = false }
+"Alt+Print" = { action = 'spawn:wf-recorder -a -f "$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4" & notify-send "Screen Recording" "Started"', repeat = false }
+# hyprpicker is wlr-screencopy based and works on Umbriel
+"Mod+Print" = { action = "spawn:pkill hyprpicker || hyprpicker -a", repeat = false }
+
+# File sharing
+"Mod+Ctrl+S" = { action = 'spawn:rofi -dmenu -i -p "Share" -theme-str "window { width: 380px; } listview { lines: 6; }"', repeat = false }
+
+# Information
+"Mod+Ctrl+Alt+T" = { action = 'spawn:notify-send " $(date +"%A %H:%M  —  %d %B W%V %Y")"', repeat = false }
+"Mod+Ctrl+Alt+B" = { action = 'spawn:notify-send " Battery at $(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo "N/A")%"', repeat = false }
+
+# Control panels
+"Mod+Ctrl+A" = { action = "spawn:uwsm-app -- ghostty -e wiremix", repeat = false }
+"Mod+Ctrl+B" = { action = 'spawn:bash -c "rfkill unblock bluetooth; uwsm-app -- ghostty -e bluetui"', repeat = false }
+"Mod+Ctrl+W" = { action = 'spawn:bash -c "rfkill unblock wifi; uwsm-app -- ghostty -e impala"', repeat = false }
+"Mod+Ctrl+T" = { action = "spawn:~/.config/umbriel/scripts/launch-or-focus.sh btop btop", repeat = false }

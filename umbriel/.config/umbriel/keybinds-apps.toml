@@ -1,0 +1,42 @@
+# Application bindings (bindings.lua)
+
+[keybinds]
+
+# Terminal
+"Mod+Return" = { action = "spawn:uwsm-app -- ghostty", repeat = false }
+# File manager
+"Mod+Shift+E" = { action = "spawn:uwsm-app -- nautilus --new-window", repeat = false }
+# Browser
+"Mod+Shift+B" = { action = "spawn:uwsm-app -- firefox", repeat = false }
+# Browser (private)
+"Mod+Shift+Alt+B" = { action = "spawn:uwsm-app -- firefox --private-window", repeat = false }
+# Toggle Microphone Mute
+"Mod+Shift+Z" = { action = "spawn:noctalia msg mic-mute", repeat = false }
+# Editor
+"Mod+Shift+N" = { action = "spawn:uwsm-app -- ghostty -e nvim", repeat = false }
+# Activity (btop) — floating, launch-or-focus
+"Mod+Shift+T" = { action = "spawn:~/.config/umbriel/scripts/launch-or-focus.sh btop btop", repeat = false }
+# Signal
+"Mod+Shift+G" = { action = "spawn:uwsm-app -- signal-desktop", repeat = false }
+# Center active window (Hyprland: hyprctl dispatch centerwindow)
+"Mod+Shift+C" = { action = "window-center", repeat = false }
+
+# Wallpaper picker (Noctalia)
+"Mod+Ctrl+Space" = { action = "spawn:noctalia msg panel-toggle wallpaper", repeat = false }
+
+# Screenshot area with editing (always saved to ~/Pictures)
+"Mod+Shift+S" = { action = "spawn:~/.config/hypr/scripts/screenshot.sh", repeat = false }
+
+# PrintScreen: click a window to screenshot it (saved to ~/Pictures, edited in satty)
+"Print" = { action = "spawn:~/.config/umbriel/scripts/screenshot-window.sh", repeat = false }
+
+# Dictation
+"Mod+D" = { action = "spawn:wayscriber --active", repeat = false }
+
+# Lock screen (Noctalia)
+"Mod+Ctrl+L" = { action = "spawn:noctalia msg session lock", allow_when_locked = true, repeat = false }
+
+# Layout toggle
+# Hyprland toggled the global layout dwindle<->scrolling via hyprctl.
+# Umbriel's toggle is per-workspace and cycles scrolling → dwindle → master.
+"Mod+L" = { action = "workspace-set-layout:toggle", repeat = false }

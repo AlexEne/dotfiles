@@ -1,0 +1,79 @@
+# Umbriel configuration — main entry point
+# Migrated from ~/.config/hypr/*.lua (Hyprland stays installed; this is opt-in).
+# Docs: https://docs.noctalia.dev/umbriel/
+# Validate after edits: umbriel config validate
+#
+# Most changes live-reload on save. [environment] and [general] autostart
+# changes require a session restart.
+
+[include]
+files = [
+    "output.toml",
+    "input.toml",
+    "layout.toml",
+    "appearance.toml",
+    "animation.toml",
+    "rules.toml",
+    "keybinds-tiling.toml",
+    "keybinds-media.toml",
+    "keybinds-clipboard.toml",
+    "keybinds-utilities.toml",
+    "keybinds-apps.toml",
+]
+
+# ==============================================================================
+# General (hyprland.lua + autostart.lua)
+
+[general]
+mod_key = "Super"
+xwayland = true
+# Hyprland: xwayland.force_zero_scaling = true (X11 apps see logical size).
+xwayland_native_resolution = false
+# Hyprland: misc.focus_on_activate = true
+focus_on_activate = true
+# Hyprland: windowrule suppress_event maximize (class .*)
+honor_restored_maximize = false
+show_cheatsheet = false
+
+# From hypr/autostart.lua. Umbriel publishes [environment] to the systemd user
+# manager itself, so the import-environment / dbus-update lines are not needed.
+autostart = [
+    "uwsm-app -- mako",
+    "uwsm-app -- swayosd-server",
+    "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
+    "noctalia",
+]
+
+# ==============================================================================
+# Environment (envs.lua)
+# XDG_SESSION_TYPE / XDG_CURRENT_DESKTOP / XDG_SESSION_DESKTOP are owned by
+# Umbriel and cannot be overridden here.
+
+[environment]
+# Cursor
+XCURSOR_SIZE = "24"
+HYPRCURSOR_SIZE = "24"
+
+# Force all apps to use Wayland
+GDK_BACKEND = "wayland,x11,*"
+QT_QPA_PLATFORM = "wayland;xcb"
+QT_STYLE_OVERRIDE = "kvantum"
+GTK_THEME = "Catppuccin-Dark"
+MOZ_ENABLE_WAYLAND = "1"
+ELECTRON_OZONE_PLATFORM_HINT = "wayland"
+OZONE_PLATFORM = "wayland"
+
+# NVIDIA
+NVD_BACKEND = "direct"
+LIBVA_DRIVER_NAME = "nvidia"
+__GLX_VENDOR_LIBRARY_NAME = "nvidia"
+
+# XCompose
+XCOMPOSEFILE = "~/.XCompose"
+
+# gum confirm theming
+GUM_CONFIRM_PROMPT_FOREGROUND = "6"
+GUM_CONFIRM_SELECTED_FOREGROUND = "0"
+GUM_CONFIRM_SELECTED_BACKGROUND = "2"
+GUM_CONFIRM_UNSELECTED_FOREGROUND = "0"
+GUM_CONFIRM_UNSELECTED_BACKGROUND = "8"

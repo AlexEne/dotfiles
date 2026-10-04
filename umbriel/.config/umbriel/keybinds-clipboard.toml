@@ -1,0 +1,9 @@
+# Clipboard bindings (clipboard.lua)
+
+[keybinds]
+
+# NOT PORTED: SUPER+C/V/X sendshortcut (Ctrl+Insert / Shift+Insert / Ctrl+X)
+# — Umbriel has no send-shortcut action.
+
+# Clipboard history
+"Mod+Ctrl+V" = { action = "spawn:walker -m clipboard --width 644 --maxheight 300 --minheight 300", repeat = false }
