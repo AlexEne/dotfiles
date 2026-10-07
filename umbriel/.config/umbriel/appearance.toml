@@ -20,10 +20,6 @@ softness = 2
 # Hyprland: decoration.shadow.color = rgba(1a1a1aee)
 shadow = "#1A1A1AEE"
 
-[colors.border]
-# Final override from hyprland.lua: rgba(c6d0f5ba)
-focused = "#C6D0F5BA"
-# Hyprland: col.inactive_border = rgba(595959aa)
-unfocused = "#595959AA"
-# Hyprland's gradient active border (33ccff/00ff99) was always overridden by
-# the flat color above; Umbriel border colors are flat anyway.
+# [colors.border]
+# focused = "#C6D0F5BA"
+# unfocused = "#595959AA"

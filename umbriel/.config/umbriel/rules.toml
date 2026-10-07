@@ -107,13 +107,20 @@ default_floating_size_px = { width = 800, height = 600 }
 # Noctalia v5: blur shell surfaces. no_anim is covered globally by
 # [animation.layers] enabled = false (animation.toml); Umbriel has no
 # per-namespace animation rules.
+# [[layer_rule]]
+# match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$'
+# # blur = true
+# # blur_ignore_alpha = 0.5
+# blur_popups = true
+# # Optimized blur samples beneath the window stack, missing the wallpaper
+# # layer under shell surfaces — the packaged Umbriel example disables it here.
+# blur_optimized = true
+
 [[layer_rule]]
 match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$'
-# blur = true
-# blur_ignore_alpha = 0.5
+blur = true
+blur_ignore_alpha = 0.7
 blur_popups = true
-# Optimized blur samples beneath the window stack, missing the wallpaper
-# layer under shell surfaces — the packaged Umbriel example disables it here.
-blur_optimized = true
+blur_optimized = false
 
 # walker: layerrule no_anim — covered by the global layers setting above.
