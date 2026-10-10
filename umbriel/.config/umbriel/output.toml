@@ -4,6 +4,7 @@
 [output.DP-1]
 mode = "3840x1600@144"
 bit_depth = 10
+vrr = "always"
 # position/scale omitted: automatic left-to-right placement, scale 1.0
 # (Hyprland used position auto / scale auto — same result for this panel).
 # Verify 10-bit committed with: umbriel color

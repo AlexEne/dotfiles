@@ -13,8 +13,10 @@
 "Ctrl+Alt+Delete" = { action = "spawn:~/.config/umbriel/scripts/close-all-windows.sh", repeat = false }
 
 # Tiling control
-# NOT PORTED: SUPER+J layoutmsg togglesplit and SUPER+P pseudo have no
-# equivalent — dwindle always splits along the longer edge.
+# NOT PORTED: SUPER+J layoutmsg togglesplit has no equivalent — dwindle
+# always splits along the longer edge. SUPER+P was pseudo in Hyprland;
+# here it floats instead (Hyprland-style togglefloating).
+"Mod+P" = { action = "window-toggle-floating", repeat = false }
 "Mod+T" = { action = "window-toggle-floating", repeat = false }
 "Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
 # fullscreenstate 0 2 has no equivalent; this is fullscreen 1 (maximized):

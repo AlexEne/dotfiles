@@ -18,7 +18,7 @@
 # only; the full path includes windows behind translucent ones.
 [[window_rule]]
 blur = true
-blur_optimized = false
+blur_optimized = true
 
 # ------------------------------------------------------------------------------
 # Browsers (was tag chromium-based-browser + tile)
@@ -33,6 +33,7 @@ default_floating = false
 [[window_rule]]
 match.app_id = '(tui\.bluetui|tui\.impala|tui\.wiremix|tui\.btop|tui\.terminal|tui\.bash|org\.gnome\.NautilusPreviewer|org\.gnome\.Evince|com\.gabm\.satty|Omarchy|About|TUI\.float|imv|mpv)'
 default_floating = true
+default_pinned = true
 default_position = { x = 0, y = 0, anchor = "center" }
 default_floating_size_px = { width = 875, height = 600 }
 
@@ -41,6 +42,7 @@ default_floating_size_px = { width = 875, height = 600 }
 match.app_id = '(xdg-desktop-portal-gtk|sublime_text|DesktopEditors|org\.gnome\.Nautilus)'
 match.title = '^(Open.*Files?|Open [F|f]older.*|Save.*Files?|Save.*As|Save|All Files|.*wants to [open|save].*|[C|c]hoose.*)'
 default_floating = true
+default_pinned = true
 default_position = { x = 0, y = 0, anchor = "center" }
 default_floating_size_px = { width = 875, height = 600 }
 
@@ -49,6 +51,7 @@ default_floating_size_px = { width = 875, height = 600 }
 match.app_id = '^(xdg-desktop-portal-gtk)$'
 match.title = '.*File Upload.*'
 default_floating = true
+default_pinned = true
 default_position = { x = 0, y = 0, anchor = "center" }
 default_floating_size_px = { width = 875, height = 600 }
 
@@ -76,6 +79,8 @@ default_floating = true
 [[window_rule]]
 match.app_id = 'steam'
 match.title = 'Friends List'
+default_floating = true
+default_pinned = true
 default_floating_size_px = { width = 300, height = 600 }
 
 # Main window: floating, centered, fixed size, never fullscreen
@@ -98,6 +103,7 @@ default_floating_size_px = { width = 1080, height = 920 }
 [[window_rule]]
 match.app_id = '^dev[.]noctalia[.]UmbrielSharePicker$'
 default_floating = true
+default_pinned = true
 default_position = { x = 0, y = 0, anchor = "center" }
 default_floating_size_px = { width = 800, height = 600 }
 
@@ -121,6 +127,5 @@ match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|
 blur = true
 blur_ignore_alpha = 0.7
 blur_popups = true
-blur_optimized = false
 
 # walker: layerrule no_anim — covered by the global layers setting above.
