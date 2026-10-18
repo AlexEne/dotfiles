@@ -3,7 +3,7 @@
 [layout]
 # Hyprland: general.layout = "dwindle"
 mode = "dwindle"
-gap = 3
+gap = 4
 extent_presets = [0.333, 0.5, 0.667]
 
 [layout.dwindle]

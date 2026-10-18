@@ -97,6 +97,7 @@ default_fullscreen = false
 [[window_rule]]
 match.app_id = 'dev\.noctalia\.Noctalia'
 default_floating = true
+default_pinned = true
 default_floating_size_px = { width = 1080, height = 920 }
 
 # Umbriel share picker: floating, centered

@@ -26,7 +26,7 @@ layout {
 
     border {
         on
-        width 2
+        width 1
         active-color "#c6d0f5ba"
         inactive-color "#595959aa"
         urgent-color "#9b0000"

@@ -112,8 +112,8 @@ hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "a
 
 hl.curve("niriSpring", { type = "spring", mass = 1, stiffness = 1000, dampening = 63.25 })
 -- hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier="easeOutQuint", style="slidevert" })
--- hl.animation({ leaf = "workspaces", enabled = true, speed = 5, spring="niriSpring", style="slidevert" })
-hl.animation({ leaf = "workspaces", enabled = false})
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, spring="niriSpring", style="slidevert" })
+-- hl.animation({ leaf = "workspaces", enabled = false})
 
 -- gum confirm theming
 hl.env("GUM_CONFIRM_PROMPT_FOREGROUND", "6")

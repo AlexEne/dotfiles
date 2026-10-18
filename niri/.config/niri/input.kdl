@@ -8,7 +8,6 @@ input {
         }
         repeat-delay 200
         repeat-rate 35
-        numlock
     }
 
     mouse {

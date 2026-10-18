@@ -7,4 +7,7 @@
 output "DP-1" {
     mode "3840x1600@144"
     // scale 1
+    hot-corners {
+        off
+    }
 }
