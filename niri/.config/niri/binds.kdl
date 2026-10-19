@@ -37,7 +37,7 @@ binds {
 
     Mod+T { toggle-window-floating; }                       // Float ↔ tile
     Mod+F { fullscreen-window; }                            // True fullscreen
-    Mod+Ctrl+F { toggle-windowed-fullscreen; }   // was fullscreenstate 0 2 — fake fullscreen, keeps its tile
+    Mod+Ctrl+F { expand-column-to-available-width; }   // was fullscreenstate 0 2 — fake fullscreen, keeps its tile
     Mod+Alt+F { maximize-window-to-edges; }      // was fullscreen 1 (true maximize)
     Mod+P { switch-preset-column-width; }        // cycle 33% / 50% / 67% / 100%
     Mod+O repeat=false hotkey-overlay-title="Pop Out Window (float 1300x900)" { spawn-sh "~/.config/niri/scripts/window-pop.sh"; }  // custom: scripts/window-pop.sh
@@ -60,6 +60,8 @@ binds {
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
+
+    Mod+Ctrl+R { reset-window-height; }
 
     // Move window to workspace: SUPER + SHIFT + 1..9, 0 (follows, like movetoworkspace)
     Mod+Shift+1 { move-window-to-workspace 1; }
@@ -89,9 +91,10 @@ binds {
     Mod+Alt+S { move-window-to-workspace "scratchpad" focus=false; }
 
     // TAB between workspaces
-    Mod+Tab { focus-workspace-down; }
-    Mod+Shift+Tab { focus-workspace-up; }
-    Mod+Ctrl+Tab { focus-workspace-previous; }
+    Mod+Tab { toggle-column-tabbed-display; }
+
+    Mod+BracketLeft  { consume-window-into-column; }
+    Mod+BracketRight {expel-window-from-column; }
 
     // Move workspaces to other monitors
     Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
@@ -196,10 +199,12 @@ binds {
     Mod+Ctrl+I hotkey-overlay-title="Toggle Idle Inhibitor (caffeine)" { spawn "noctalia" "msg" "caffeine-toggle"; }
 
     // === Captures ===
-    // Print: select a region, edit in satty (hyprland's click-a-window PRINT was
-    // hyprctl-based; region select is the portable equivalent)
-    Print hotkey-overlay-title="Screenshot: region → annotate (satty)" { spawn-sh "grim -g \"$(slurp)\" - | satty --filename -"; }   // Region → annotate in satty
-    Shift+Print hotkey-overlay-title="Screenshot: region → clipboard" { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }        // Region → clipboard
+    // Print: crosshair picker, click a window to shoot it, then edit in satty
+    // — the niri equivalent of hyprland's click-a-window PRINT
+    Print hotkey-overlay-title="Screenshot: pick window → annotate (satty)" { spawn-sh "~/.config/niri/scripts/screenshot-window.sh"; }   // Pick window → annotate in satty
+    // Mod+Shift+Print: drag a region, edit in satty (in slurp a plain click cancels!)
+    Mod+Shift+Print hotkey-overlay-title="Screenshot: region → annotate (satty)" { spawn-sh "~/.config/niri/scripts/screenshot.sh"; }   // Region → annotate in satty
+    Shift+Print hotkey-overlay-title="Screenshot: region → clipboard" { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }        // Region → clipboard (drag; a plain click cancels)
     Alt+Print hotkey-overlay-title="Screen Recording: start (with audio)" { spawn-sh "wf-recorder -a -f \"$(xdg-user-dir VIDEOS)/recording-$(date +%Y%m%d-%H%M%S).mp4\" & notify-send 'Screen Recording' 'Started'"; }  // Screen recording (with audio)
     Mod+Print hotkey-overlay-title="Color Picker (hyprpicker)" { spawn "hyprpicker" "-a"; }   // Live preview picker, copies #hex
 
