@@ -20,7 +20,7 @@
   "search": {
     "button": false,
   },
-  "diff_view_style": "unified",
+  "diff_view_style": "split",
   "language_models": {
     "opencode": {
       "show_zen_models": true,

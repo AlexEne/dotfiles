@@ -1,12 +1,10 @@
 // Look and feel — ported from looknfeel.conf
 
 layout {
-    // niri gaps are uniform
-    gaps 4
+    gaps 6
 
     default-column-width { proportion 0.5; }
 
-    // A single column on a workspace stays centered
     always-center-single-column
 
     // Widths cycled by switch-preset-column-width (Mod+P): 33 / 50 / 67 / 100%
@@ -21,11 +19,12 @@ layout {
 
     // Border replaces the focus ring 
     focus-ring {
-        off
+        on
+        width 1
     }
 
     border {
-        on
+        off
         width 1
         active-color "#c6d0f5ba"
         inactive-color "#595959aa"

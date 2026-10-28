@@ -12,7 +12,7 @@ binds {
     Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
     Mod+Shift+E hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus" "--new-window"; }  // File manager
     Mod+Shift+B hotkey-overlay-title="Browser: Firefox" { spawn "firefox"; }                        // Browser
-    Mod+Shift+Z allow-when-locked=true hotkey-overlay-title="Toggle Mic Mute (global)" { spawn "noctalia" "msg" "mic-mute"; }  // Global mic mute (Noctalia)
+    Mod+Shift+Z repeat=false allow-when-locked=true hotkey-overlay-title="Toggle Mic Mute (global)" { spawn "noctalia" "msg" "mic-mute"; }  // Global mic mute (Noctalia)
     Mod+Shift+N hotkey-overlay-title="Editor: nvim" { spawn "ghostty" "-e" "nvim"; }                // Editor (nvim)
     Mod+Shift+T hotkey-overlay-title="System Monitor: btop" { spawn "ghostty" "-e" "btop"; }        // System monitor
 
